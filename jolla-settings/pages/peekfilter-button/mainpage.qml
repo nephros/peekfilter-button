@@ -37,45 +37,22 @@ Page { id: page
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("The edge boundary (a.k.a. Peek Boundary) describes the area at the edge of the screen which is recognized as an edge swipe gesture, as opposed to a swipe in an application window.")
+                text: qsTr("The edge boundary (a.k.a. peek boundary) describes the area at the edge of the screen which is recognized as an edge swipe gesture (as opposed to a swipe within an application window).")
             }
-            Label {
+            LinkedLabel {
                 width: parent.width
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("Increasing the boundary can help when edge swipes are not recognized reliably.")
+                plainText: qsTr("Increasing the boundary can help when edge swipes are not recognized reliably. For more information, see https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe")
+                shortenUrl: true
             }
-            Label {
-                width: parent.width
-                wrapMode: Text.Wrap
-                color: Theme.highlightColor
-                font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("For certain applications, like some games, it can be useful to reduce or disable the boundary completely.")
-            }
-            PeekSlider { id: slider
-                value: peekBoundary.value
-                onDownChanged: {
-                    if (!down) {
-                        page.setPeekBoundary(sliderValue)
-                    }
-                }
-            }
-            Label {
-                width: parent.width - Theme.itemSizeSmall
-                x: Theme.itemSizeSmall
-                wrapMode: Text.Wrap
-                color: Theme.secondaryColor
-                font.pixelSize: Theme.fontSizeExtraSmall
-                text: qsTr("Careful: setting this too low will result in you not being able to swipe away applications at all.")
-            }
-
             Item {
-                height: Theme.itemSizeLarge
+                height: Theme.paddingLarge
                 width: parent.width
             }
             Rectangle {
-                property double factor: 0.4
+                property double factor: 0.3
                 anchors.horizontalCenter: parent.horizontalCenter
 
                 height: Screen.height * factor
@@ -95,7 +72,7 @@ Page { id: page
                     z: 10
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    width: page.currentValue * parent.factor
+                    width: slider.value * parent.factor
                     height: parent.height
                     color: Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
                 }
@@ -103,11 +80,40 @@ Page { id: page
                     z: 10
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
-                    width: page.currentValue * parent.factor
+                    //width: page.currentValue * parent.factor
+                    width: slider.value * parent.factor
                     height: parent.height
                     color: Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
                 }
 
+            }
+            Item {
+                height: Theme.paddingLarge
+                width: parent.width
+            }
+            PeekSlider { id: slider
+                value: peekBoundary.value
+                onDownChanged: {
+                    if (!down) {
+                        page.setPeekBoundary(sliderValue)
+                    }
+                }
+            }
+            Label {
+                width: parent.width - Theme.itemSizeSmall
+                x: Theme.itemSizeSmall
+                wrapMode: Text.Wrap
+                color: Theme.secondaryColor
+                font.pixelSize: Theme.fontSizeExtraSmall
+                text: qsTr("Careful: setting this too low will result in you not being able to swipe away applications at all.")
+            }
+
+            Label {
+                width: parent.width
+                wrapMode: Text.Wrap
+                color: Theme.highlightColor
+                font.pixelSize: Theme.fontSizeSmall
+                text: qsTr("Hint: For certain applications, like some games, it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Edge Swipe button control to the Top Menu.")
             }
         }
     }

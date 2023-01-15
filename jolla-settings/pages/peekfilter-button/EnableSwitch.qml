@@ -42,7 +42,7 @@ SettingsToggle {
 
     menu: ContextMenu {
         SettingsMenuItem { onClicked: enableSwitch.goToSettings() }
-        PeekSlider { id: slider; 
+        PeekSlider {
             value: peekBoundary.value
             onDownChanged: {
                 if (!down) {
@@ -50,10 +50,8 @@ SettingsToggle {
                 }
             }
         }
-        MenuItem { text: qsTr("Reset"); onClicked: peekBoundary.value = config.defaultValue }
-        }
+        MenuItem { text: qsTr("Reset"); onClicked: peekBoundary.value = peekBoundary.defaultValue }
     }
-
     onToggled: {
         if (!checked) {
             peekBoundaryUser.value = peekBoundary.value
