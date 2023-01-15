@@ -16,12 +16,12 @@ SettingsToggle {
 
     property bool activeState: peekBoundary.value === 0
 
+    active: !activeState
+    checked: !activeState
+
     name: qsTr("Edge Swipe")
     activeText: qsTr("Edge: %1px").arg(peekBoundary.value)
     icon.source: "image://theme/icon-m-gesture"
-
-    active: !activeState
-    checked: !activeState
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
@@ -33,7 +33,7 @@ SettingsToggle {
 
     function setPeekBoundary(n) {
         const i = Math.floor(n)
-        console.info("Set peek boudary width to", i)
+        //console.info("Set peek boundary width to", i)
         if (i === 0) peekBoundaryUser.value = peekBoundary.value
         peekBoundary.value = i
     }
@@ -44,11 +44,7 @@ SettingsToggle {
         SettingsMenuItem { onClicked: enableSwitch.goToSettings() }
         PeekSlider {
             value: peekBoundary.value
-            onDownChanged: {
-                if (!down) {
-                    enableSwitch.setPeekBoundary(sliderValue)
-                }
-            }
+            onDownChanged: (down) ? 0 : enableSwitch.setPeekBoundary(sliderValue)
         }
         MenuItem { text: qsTr("Reset"); onClicked: peekBoundary.value = peekBoundary.defaultValue }
     }

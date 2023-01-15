@@ -16,7 +16,7 @@ Page { id: page
 
     function setPeekBoundary(n) {
         const i = Math.floor(n)
-        console.info("Set peek boudary width to", i)
+        //console.info("Set peek boudary width to", i)
         if (i === 0) peekBoundaryUser.value = peekBoundary.value
         peekBoundary.value = i
     }
@@ -93,11 +93,7 @@ Page { id: page
             }
             PeekSlider { id: slider
                 value: peekBoundary.value
-                onDownChanged: {
-                    if (!down) {
-                        page.setPeekBoundary(sliderValue)
-                    }
-                }
+                onDownChanged: (down) ? 0 : page.setPeekBoundary(sliderValue)
             }
             Label {
                 width: parent.width - Theme.itemSizeSmall

@@ -13,8 +13,8 @@ Slider { id: slider
     label: qsTr("Swipe width")
 
     stepSize: 4; minimumValue: 0; maximumValue: 120
-    color: (value < 40) ? Theme.errorColor : Theme.lightPrimaryColor
     valueText: sliderValue + "px"
+    color: (value < 40) ? Theme.highlightFromColor("orange", Theme.colorScheme) : Theme.lightPrimaryColor
 }
 
 // vim: ft=javascript expandtab ts=4 sw=4 st=4
