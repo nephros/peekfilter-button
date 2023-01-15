@@ -28,12 +28,17 @@ BuildRequires:  qml-rpm-macros
 %description
 Adds a Settings entry to configure and a TopMenu switch to disable edge swipes.
 
-Say you are playing a game or are editing an image in some app, but the edge swipe gets in the way and wants to minimize the app.
-Simple, swipe down the Top Menu, tap the button, swipe up again. Problem goes away.
+This app serves two functions. One, it allows to set the peekBundaryWidth from
+the Settings app. See https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe about that.
 
-But DO remember to disable the button again soon, else you will have a bad time interacting with SFOS ;)
+Two: say you are playing a game or are editing an image in some app, but
+the edge swipe gets in the way and wants to minimize the app.  Simple,
+swipe down the Top Menu, tap the switch, swipe up again.  
+Problem goes away.
 
-After installing, you will have to restart Lipstick, so you can enable the button.
+But DO remember to disable the switch again soon, else you will have a bad time interacting with SFOS ;)
+
+After installing, you will have to restart Lipstick, so you can enable the switch.
 
 %if "%{?vendor}" == "chum"
 PackageName: Edge Swipe Control
