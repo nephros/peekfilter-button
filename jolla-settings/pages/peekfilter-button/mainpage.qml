@@ -5,8 +5,6 @@ import Nemo.Configuration 1.0
 
 Page { id: page
 
-    property alias currentValue: peekBoundary.value
-
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
         defaultValue: (peekBoundaryUser.value !== 0) ? peekBoundaryUser : 60
