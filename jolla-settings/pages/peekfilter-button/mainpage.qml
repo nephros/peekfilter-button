@@ -122,7 +122,7 @@ Page { id: page
             SecondaryButton {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Open Topmenu Settings")
-                onClicked: menu.open()
+                onClicked: pageStack.push(Qt.resolvedUrl("../topmenu/topmenu.qml"))
             }
         }
     }
