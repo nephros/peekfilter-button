@@ -52,12 +52,15 @@ PkgBR:
   # for the UI:
   - qt5-qmake
   # sailfish-svg2png
+  - qt5-qttools-linguist
+  - qml-rpm-macros
 Configure: none
 Builder: qmake5
-NoIconCache: true
 BuildArch: noarch
+NoIconCache: true
 Files:
-  - '%{_datadir}/jolla-settings/entries/peekfilter-button.json'
-  - '%{_datadir}/jolla-settings/pages/peekfilter-button/EnableSwitch.qml'
-  - '%{_datadir}/jolla-settings/pages/peekfilter-button/PeekSlider.qml'
-  - '%{_datadir}/jolla-settings/pages/peekfilter-button/mainpage.qml'
+  - '%{_datadir}/jolla-settings/entries/%{name}.json'
+  - '%{_datadir}/jolla-settings/pages/%{name}/EnableSwitch.qml'
+  - '%{_datadir}/jolla-settings/pages/%{name}/PeekSlider.qml'
+  - '%{_datadir}/jolla-settings/pages/%{name}/mainpage.qml'
+  - '%{_datadir}/translations/*.qm'

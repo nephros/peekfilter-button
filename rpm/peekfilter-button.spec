@@ -22,6 +22,8 @@ Requires(post): systemd
 Requires(postun): systemd
 BuildRequires:  systemd
 BuildRequires:  qt5-qmake
+BuildRequires:  qt5-qttools-linguist
+BuildRequires:  qml-rpm-macros
 
 %description
 Adds a Settings entry to configure and a TopMenu switch to disable edge swipes.
@@ -82,9 +84,10 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_datadir}/jolla-settings/entries/peekfilter-button.json
-%{_datadir}/jolla-settings/pages/peekfilter-button/EnableSwitch.qml
-%{_datadir}/jolla-settings/pages/peekfilter-button/PeekSlider.qml
-%{_datadir}/jolla-settings/pages/peekfilter-button/mainpage.qml
+%{_datadir}/jolla-settings/entries/%{name}.json
+%{_datadir}/jolla-settings/pages/%{name}/EnableSwitch.qml
+%{_datadir}/jolla-settings/pages/%{name}/PeekSlider.qml
+%{_datadir}/jolla-settings/pages/%{name}/mainpage.qml
+%{_datadir}/translations/*.qm
 # >> files
 # << files

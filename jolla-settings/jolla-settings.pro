@@ -11,3 +11,12 @@ settings-ui.files = \
 
 INSTALLS += settings-ui settings-entry
 OTHER_FILES += test.qml
+
+lupdate_only {
+    SOURCES += pages/*.qml
+}
+
+TRANSLATIONS += translations/$${TARGET}-en.ts \
+                translations/$${TARGET}-de.ts
+
+include(translations/translations.pri)
