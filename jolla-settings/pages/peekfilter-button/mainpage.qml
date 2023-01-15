@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import Sailfish.Silica 1.0
+import Nemo.DBus 2.0
 import Nemo.Configuration 1.0
 
 Page { id: page
@@ -90,7 +91,6 @@ Page { id: page
                     z: 10
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
-                    //width: page.currentValue * parent.factor
                     width: slider.value * parent.factor
                     height: parent.height
                     color: Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
@@ -119,7 +119,12 @@ Page { id: page
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("Hint: For certain applications, like some games, it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Edge Swipe button control to the Top Menu.")
+                text: qsTr("Hint: For certain applications, like some games, it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.")
+            }
+            SecondaryButton {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Open Topmenu Settings")
+                onClicked: menu.open()
             }
         }
     }

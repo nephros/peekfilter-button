@@ -17,8 +17,8 @@ SettingsToggle {
     checked: peekBoundary.value === 0
     active: checked
 
-    name: qsTr("Swipe Lock off")
-    activeText: qsTr("Swipe Lock on")
+    name: qsTr("Swipe Lock: off")
+    activeText: qsTr("Swipe Lock: on")
     icon.source: "image://theme/icon-m-gesture"
 
     ConfigurationValue { id: peekBoundary
