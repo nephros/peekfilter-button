@@ -1,0 +1,27 @@
+{
+    "entries": [
+        {
+            "path": "system_settings/look_and_feel/peekfilter-button",
+            "type": "page",
+            "title": "Edge Swipe",
+            "order": 1000,
+            "icon": "image://theme/icon-m-gesture",
+            "params": {
+                "source": "/usr/share/jolla-settings/pages/peekfilter-button/mainpage.qml",
+                "privileged": "false"
+            }
+        },
+        {
+            "path": "system_settings/look_and_feel/peekfilter-button/enable_switch",
+            "type": "custom",
+            "icon": "image://theme/icon-m-gesture",
+            "title": "Edge Swipe",
+            "params": {
+                "source": "/usr/share/jolla-settings/pages/peekfilter-button/EnableSwitch.qml",
+                "type": "grid",
+                "privileged": "false",
+                "settings_path": "system_settings/look_and_feel/peekfilter-button"
+            }
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+Name: peekfilter-button
+Summary: Disable edge swipes
+Version: 0.9.0
+Release: 1
+Group: Applications
+License: ASL 2.0
+#URL: 
+#SCM:
+Sources:
+    - '%{name}-%{version}.tar.gz'
+Description: |
+     Adds a Settings entry and a TopMenu switch to disable edge swipes
+
+#    %if "%{?vendor}" == "chum"
+#    PackageName: I2Pd
+#    Type: console-application
+#    PackagerName: nephros
+#    Categories:
+#     - Network
+#     - P2P
+#    Custom:
+#      Repo: https://github.com/PurpleI2P/i2pd
+#      PackagingRepo: https://github.com/nephros/i2pd
+#    Icon: https://i2pd.website/images/favicon.png
+#    Url:
+#      Homepage: https://i2pd.website
+#      Help: https://i2pd.readthedocs.io/en/latest
+#      Donations: https://i2pd.website/#donations
+#    %endif
+#SetupOptions: -q -n %{name}-%{version}/upstream
+#Macros:
+#Patches:
+#  - 'baz'
+Requires:
+  - systemd
+RequiresPost:
+  - systemd
+RequiresPostUn:
+  - systemd
+PkgBR:
+  - systemd
+  # for the UI:
+  - qt5-qmake
+  - sailfish-svg2png
+Configure: none
+Builder: qmake5
+NoIconCache: true
+BuildArch: noarch
+Files:
+  - '%{_datadir}/jolla-settings/entries/peekfilter-button.json'
+  - '%{_datadir}/jolla-settings/pages/peekfilter-button/EnableSwitch.qml'
+  - '%{_datadir}/jolla-settings/pages/peekfilter-button/PeekSlider.qml'
+  - '%{_datadir}/jolla-settings/pages/peekfilter-button/mainpage.qml'
