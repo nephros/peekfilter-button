@@ -14,13 +14,11 @@ import org.nemomobile.systemsettings 1.0
 SettingsToggle {
     id: enableSwitch
 
-    property bool activeState: peekBoundary.value === 0
+    checked: peekBoundary.value === 0
+    active: checked
 
-    active: !activeState
-    checked: !activeState
-
-    name: qsTr("Edge Swipe")
-    activeText: qsTr("Edge: %1px").arg(peekBoundary.value)
+    name: qsTr("Swipe Lock off")
+    activeText: qsTr("Swipe Lock on")
     icon.source: "image://theme/icon-m-gesture"
 
     ConfigurationValue { id: peekBoundary
@@ -33,12 +31,10 @@ SettingsToggle {
 
     function setPeekBoundary(n) {
         const i = Math.floor(n)
-        //console.info("Set peek boundary width to", i)
-        if (i === 0) peekBoundaryUser.value = peekBoundary.value
+        if (i === 0) peekBoundaryUser.value = Math.floor(peekBoundary.value)
         peekBoundary.value = i
+        console.debug("Setting values (i, user, new): ", i, peekBoundaryUser.value, peekBoundary.value)
     }
-
-    Component.onCompleted: peekBoundaryUser.value = peekBoundary.value
 
     menu: ContextMenu {
         SettingsMenuItem { onClicked: enableSwitch.goToSettings() }
@@ -46,16 +42,13 @@ SettingsToggle {
             value: peekBoundary.value
             onDownChanged: (down) ? 0 : enableSwitch.setPeekBoundary(sliderValue)
         }
-        MenuItem { text: qsTr("Reset"); onClicked: peekBoundary.value = peekBoundary.defaultValue }
     }
     onToggled: {
         if (!checked) {
-            peekBoundaryUser.value = peekBoundary.value
             setPeekBoundary(0)
         } else {
             setPeekBoundary(peekBoundaryUser.value)
         }
     }
-
 }
 // vim: ft=javascript expandtab ts=4 sw=4 st=4

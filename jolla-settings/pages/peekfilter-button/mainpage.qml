@@ -16,8 +16,9 @@ Page { id: page
 
     function setPeekBoundary(n) {
         const i = Math.floor(n)
-        //console.info("Set peek boudary width to", i)
-        if (i === 0) peekBoundaryUser.value = peekBoundary.value
+        if (i === 0) {
+            peekBoundaryUser.value = Math.floor(peekBoundary.value)
+        }
         peekBoundary.value = i
     }
 
@@ -25,6 +26,15 @@ Page { id: page
         anchors.fill: parent
         contentHeight: column.height
 
+        PullDownMenu {
+            MenuItem { text: qsTr("Reset to default")
+                onClicked: {
+                peekBoundary.value = undefined;
+                peekBoundaryUser.value = undefined;
+                pageStack.navigateBack()
+                }
+            }
+        }
         Column { id: column
             width: page.width - Theme.horizontalPageMargin
             anchors.horizontalCenter: parent.horizontalCenter
@@ -92,7 +102,7 @@ Page { id: page
                 width: parent.width
             }
             PeekSlider { id: slider
-                value: peekBoundary.value
+                value: peekBoundary.value ? peekBoundary.value : peekBoundary.defaultValue
                 onDownChanged: (down) ? 0 : page.setPeekBoundary(sliderValue)
             }
             Label {
