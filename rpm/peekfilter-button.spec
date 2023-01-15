@@ -8,12 +8,13 @@ Name:       peekfilter-button
 # >> macros
 # << macros
 
-Summary:    Disable edge swipes
+Summary:    Control edge swipes
 Version:    0.9.0
 Release:    1
 Group:      Applications
 License:    ASL 2.0
 BuildArch:  noarch
+URL:        https://github.com/nephros/peekfilter-button
 Source0:    %{name}-%{version}.tar.gz
 Source100:  peekfilter-button.yaml
 Requires:   systemd
@@ -21,10 +22,36 @@ Requires(post): systemd
 Requires(postun): systemd
 BuildRequires:  systemd
 BuildRequires:  qt5-qmake
-BuildRequires:  sailfish-svg2png
 
 %description
-Adds a Settings entry and a TopMenu switch to disable edge swipes
+Adds a Settings entry to configure and a TopMenu switch to disable edge swipes.
+
+Say you are playing a game or are editing an image in some app, but the edge swipe gets in the way and wants to minimize the app.
+Simple, swipe down the Top Menu, tap the button, swipe up again. Problem goes away.
+
+But DO remember to disable the button again soon, else you will have a bad time interacting with SFOS ;)
+
+After installing, you will have to restart Lipstick, so you can enable the button.
+
+%if "%{?vendor}" == "chum"
+PackageName: Edge Swipe Control
+Type: desktop-application
+PackagerName: nephros
+Categories:
+ - System
+ - Settings
+Custom:
+  Repo: %{url}
+Icon: https://sailfishos.org/content/sailfishos-docs//sailfish-content-graphics-default/latest/images/icon-m-gesture.svg
+Url:
+  Homepage: %{url}
+  Help: %{url}/issues
+  Donations:
+    - https://noyb.eu/en/donations-other-support-options
+    - https://my.fsfe.org/donate
+    - https://supporters.eff.org/donate/join-4
+    - https://openrepos.net/donate
+%endif
 
 
 %prep

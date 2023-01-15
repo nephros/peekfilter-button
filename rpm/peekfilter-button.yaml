@@ -1,32 +1,42 @@
 Name: peekfilter-button
-Summary: Disable edge swipes
+Summary: Control edge swipes
 Version: 0.9.0
 Release: 1
 Group: Applications
 License: ASL 2.0
-#URL: 
-#SCM:
+URL: https://github.com/nephros/peekfilter-button
+SCM: https://github.com/nephros/peekfilter-button
 Sources:
     - '%{name}-%{version}.tar.gz'
 Description: |
-     Adds a Settings entry and a TopMenu switch to disable edge swipes
+     Adds a Settings entry to configure and a TopMenu switch to disable edge swipes.
 
-#    %if "%{?vendor}" == "chum"
-#    PackageName: I2Pd
-#    Type: console-application
-#    PackagerName: nephros
-#    Categories:
-#     - Network
-#     - P2P
-#    Custom:
-#      Repo: https://github.com/PurpleI2P/i2pd
-#      PackagingRepo: https://github.com/nephros/i2pd
-#    Icon: https://i2pd.website/images/favicon.png
-#    Url:
-#      Homepage: https://i2pd.website
-#      Help: https://i2pd.readthedocs.io/en/latest
-#      Donations: https://i2pd.website/#donations
-#    %endif
+     Say you are playing a game or are editing an image in some app, but the edge swipe gets in the way and wants to minimize the app.
+     Simple, swipe down the Top Menu, tap the button, swipe up again. Problem goes away.
+
+     But DO remember to disable the button again soon, else you will have a bad time interacting with SFOS ;)
+
+     After installing, you will have to restart Lipstick, so you can enable the button.
+
+     %if "%{?vendor}" == "chum"
+     PackageName: Edge Swipe Control
+     Type: desktop-application
+     PackagerName: nephros
+     Categories:
+      - System
+      - Settings
+     Custom:
+       Repo: %{url}
+     Icon: https://sailfishos.org/content/sailfishos-docs//sailfish-content-graphics-default/latest/images/icon-m-gesture.svg
+     Url:
+       Homepage: %{url}
+       Help: %{url}/issues
+       Donations:
+         - https://noyb.eu/en/donations-other-support-options
+         - https://my.fsfe.org/donate
+         - https://supporters.eff.org/donate/join-4
+         - https://openrepos.net/donate
+     %endif
 #SetupOptions: -q -n %{name}-%{version}/upstream
 #Macros:
 #Patches:
@@ -41,7 +51,7 @@ PkgBR:
   - systemd
   # for the UI:
   - qt5-qmake
-  - sailfish-svg2png
+  # sailfish-svg2png
 Configure: none
 Builder: qmake5
 NoIconCache: true
