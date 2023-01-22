@@ -43,10 +43,10 @@ After installing, you will have to restart Lipstick, so you can enable the switc
 %if "%{?vendor}" == "chum"
 PackageName: Edge Swipe Control
 Type: desktop-application
-PackagerName: nephros
+DeveloperName: nephros
 Categories:
- - System
- - Settings
+  - System
+  - Settings
 Custom:
   Repo: %{url}
 Icon: https://sailfishos.org/content/sailfishos-docs//sailfish-content-graphics-default/latest/images/icon-m-gesture.svg
