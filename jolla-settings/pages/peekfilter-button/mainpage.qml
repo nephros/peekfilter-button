@@ -5,6 +5,9 @@ import Nemo.Configuration 1.0
 
 Page { id: page
 
+    /* string is just here to get caught for translations */
+    property string titledummy: qsTr("Edge Swipe", "title of the Settings entry")
+
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
         defaultValue: (peekBoundaryUser.value !== 0) ? peekBoundaryUser : 60
@@ -131,7 +134,7 @@ Page { id: page
             }
             ValueButton {
                 label: qsTr("Top Menu Settings")
-                description: qsTr("Look for Swipe Lock");
+                description: qsTr('Look for "%1"').arg("Swipe Lock");
                 //onClicked: pageStack.push(Qt.resolvedUrl("../topmenu/topmenu.qml"))
                 onClicked: { settings.open("system_settings/look_and_feel/topmenu") }
             }

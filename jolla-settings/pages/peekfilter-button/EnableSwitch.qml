@@ -17,6 +17,10 @@ SettingsToggle {
     checked: peekBoundary.value === 0
     active: checked
 
+    /* string is just here to get caught for translations */
+    property string titledummy: qsTr("Swipe Lock", "title of the Settings entry")
+
+
     name: qsTr("Swipe Lock: off")
     activeText: qsTr("Swipe Lock: on")
     icon.source: "image://theme/icon-m-gesture"
