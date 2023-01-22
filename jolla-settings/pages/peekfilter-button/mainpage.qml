@@ -12,6 +12,14 @@ Page { id: page
     ConfigurationValue { id: peekBoundaryUser
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
     }
+    DBusInterface { id: settings
+        service: "com.jolla.settings"
+        path: "/com/jolla/settings/ui"
+        iface: "com.jolla.settings.ui"
+        function open(page) {
+            call ("showPage", [ page ], function(){},function(){})
+        }
+    }
 
     function setPeekBoundary(n) {
         const i = Math.floor(n)
@@ -46,7 +54,7 @@ Page { id: page
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("The slider below enbles you to configure the area of the screen which is recognized as an 'Edge Swipe' gesture (as opposed to a swipe within an application window).")
+                text: qsTr("The slider below enables you to configure the area of the screen which is recognized as an 'Edge Swipe' gesture (as opposed to a swipe within an application window).")
             }
             LinkedLabel {
                 width: parent.width
@@ -112,17 +120,20 @@ Page { id: page
                 text: qsTr("Careful: setting this too low will result in you not being able to swipe away applications at all.")
             }
 
+            SectionHeader { text: qsTr("Swipe Lock") }
+
             Label {
                 width: parent.width
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("Hint: For certain applications, like some games, it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.")
+                text: qsTr("For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.")
             }
-            SecondaryButton {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Open Topmenu Settings")
-                onClicked: pageStack.push(Qt.resolvedUrl("../topmenu/topmenu.qml"))
+            ValueButton {
+                label: qsTr("Top Menu Settings")
+                description: qsTr("Look for Swipe Lock");
+                //onClicked: pageStack.push(Qt.resolvedUrl("../topmenu/topmenu.qml"))
+                onClicked: { settings.open("system_settings/look_and_feel/topmenu") }
             }
         }
     }
