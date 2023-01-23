@@ -51,6 +51,10 @@ Categories:
 Custom:
   Repo: %{url}
 Icon: https://sailfishos.org/content/sailfishos-docs//sailfish-content-graphics-default/latest/images/icon-m-gesture.svg
+Screenshots:
+  - %{url}/raw/master/Screenshot_001.png
+  - %{url}/raw/master/Screenshot_002.png
+  - %{url}/raw/master/Screenshot_003.png
 Url:
   Homepage: %{url}
   Help: %{url}/issues
