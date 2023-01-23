@@ -194,14 +194,17 @@ Page { id: page
                         qsTrId("settings-peekfilter-page-label-4").arg(qsTrId("settings-peekfilter-button")),
                         qsTrId("settings-peekfilter-button"),
                         Theme.highlightColor
-                )
+                      )
+                    + "<br />"
+                    //% "Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes."
+                    + qsTrId("settings-peekfilter-page-label-5").arg(qsTrId("settings-peekfilter-button"))
             }
             ValueButton {
                 //% "Top Menu Settings"
                 label: qsTrId("settings-peekfilter-page-topmenu-settings-name")
                 //% "Look for '%1'"
                 //: %1 is the button name (id: settings-peekfilter-button)
-                description: qsTrId("settings-peekfilter-page-topmenu-settings-hint").arg(qsTrId("settings-peekfilter-button"));
+                description: qsTrId("settings-peekfilter-page-topmenu-settings-hint").arg(qsTrId("settings-peekfilter-button").arg("2.5"));
                 //onClicked: pageStack.push(Qt.resolvedUrl("../topmenu/topmenu.qml"))
                 onClicked: { settings.open("system_settings/look_and_feel/topmenu") }
             }

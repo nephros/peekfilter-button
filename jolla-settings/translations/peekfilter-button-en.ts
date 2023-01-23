@@ -73,5 +73,10 @@ section header</extracomment>
         <extracomment>%1 is the button name (id: settings-peekfilter-button)</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message id="settings-peekfilter-page-label-5">
+        <source>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</source>
+        <oldsource>As a safety measure, %1 will disable itself automatically after 2.5 Minutes.</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -70,5 +70,9 @@ section header</extracomment>
         <extracomment>section header</extracomment>
         <translation>Kantenbreite</translation>
     </message>
+    <message id="settings-peekfilter-page-label-5">
+        <source>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</source>
+        <translation type="unfinished">Hinweis: Aus Sicherheitsgründen schaltet sich %1 nach %2 Minuten automatisch aus.</translation>
+    </message>
 </context>
 </TS>
