@@ -9,10 +9,11 @@ SCM: https://github.com/nephros/peekfilter-button
 Sources:
     - '%{name}-%{version}.tar.gz'
 Description: |
-     Adds a Settings entry to configure and a TopMenu switch to disable edge swipes.
+     Adds a Settings entry to configure and a Top Menu switch to disable edge swipes.
 
      This app serves two functions. One, it allows to set the peekBundaryWidth from
-     the Settings app. See https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe about that.
+     the Settings app.  
+     See https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe about that.
 
      Two: say you are playing a game or are editing an image in some app, but
      the edge swipe gets in the way and wants to minimize the app.  Simple,
