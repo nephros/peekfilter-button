@@ -21,5 +21,4 @@ lupdate_only {
 TRANSLATIONS += translations/peekfilter-button-en.ts \
                 translations/peekfilter-button-de.ts
 
-include(entries/entries.pri)
 include(translations/translations.pri)
