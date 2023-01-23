@@ -14,7 +14,7 @@ Slider { id: slider
     //: app name in the settings
     label: qsTrId("settings-peekfilter-controls-slider")
 
-    stepSize: 4; minimumValue: 0; maximumValue: 120
+    stepSize: 4; minimumValue: 0; maximumValue: Screen.width / 8
     valueText: sliderValue + "px"
     color: (value < 40) ? Theme.highlightFromColor("orange", Theme.colorScheme) : Theme.lightPrimaryColor
 }
