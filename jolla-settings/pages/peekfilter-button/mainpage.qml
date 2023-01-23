@@ -99,6 +99,18 @@ Page { id: page
                 color: "transparent" //Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
 
                 radius: width / 10
+                Rectangle {
+                    z: 15
+                    clip: true
+                    anchors.centerIn: parent
+                    width: parent.width + border.width * 2
+                    height: parent.height + border.width * 2
+                    color: "transparent" //Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
+                    border.color: "black"
+                    border.width:  Theme.paddingMedium
+                    radius: width / 15
+
+                }
                 Image {
                     z: -1
                     anchors.fill: parent
