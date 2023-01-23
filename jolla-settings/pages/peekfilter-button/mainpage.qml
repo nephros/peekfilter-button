@@ -39,6 +39,8 @@ Page { id: page
         peekBoundary.value = i
     }
 
+    property bool sliderDown: false
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
@@ -129,7 +131,10 @@ Page { id: page
             }
             PeekSlider { id: slider
                 value: peekBoundary.value ? peekBoundary.value : peekBoundary.defaultValue
-                onDownChanged: if (!down) page.setPeekBoundary(sliderValue)
+                onDownChanged: {
+                    if (!down) page.setPeekBoundary(sliderValue)
+                    sliderDown = down
+                }
             }
             Label {
                 width: parent.width - Theme.itemSizeSmall
@@ -169,6 +174,24 @@ Page { id: page
                 onClicked: { settings.open("system_settings/look_and_feel/topmenu") }
             }
         }
+    }
+    Rectangle {
+        z: 10
+        visible: sliderDown
+        anchors.left: parent.left
+        anchors.verticalCenter: parent.verticalCenter
+        width: slider.value
+        height: parent.height
+        color: Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
+    }
+    Rectangle {
+        z: 10
+        visible: sliderDown
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        width: slider.value
+        height: parent.height
+        color: Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
     }
 }
 
