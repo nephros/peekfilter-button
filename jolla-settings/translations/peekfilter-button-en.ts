@@ -38,7 +38,8 @@ section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-label-4">
-        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.</source>
+        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \&quot;%1\&quot; button control to the Top Menu.</source>
+        <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-name">

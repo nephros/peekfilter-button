@@ -13,7 +13,7 @@ section header</extracomment>
     <message id="settings-peekfilter-page">
         <source>Edge Swipe</source>
         <extracomment>entry name in the settings</extracomment>
-        <translation>Kantenwischen</translation>
+        <translation>Wischkante</translation>
     </message>
     <message id="settings-peekfilter-menu-reset">
         <source>Reset to default</source>
@@ -23,7 +23,7 @@ section header</extracomment>
     <message id="settings-peekfilter-page-title">
         <source>Edge Swipe</source>
         <extracomment>Settings page title</extracomment>
-        <translation>Kantenwischen</translation>
+        <translation>Wischkante</translation>
     </message>
     <message id="settings-peekfilter-page-label-1">
         <source>The slider below enables you to configure the area of the screen which is recognized as an &apos;Edge Swipe&apos; gesture (as opposed to a swipe within an application window).</source>
@@ -38,8 +38,9 @@ section header</extracomment>
         <translation>Vorsicht: wenn du den Wert zu klein setzt wirst du Apps nicht mehr seitlich wegwischen können.</translation>
     </message>
     <message id="settings-peekfilter-page-label-4">
-        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.</source>
-        <translation>Für manche Apps (z.B. Spiele) kann es hilfreich sein, das Kantenwischen ganz abzuschalten. Am besten geht das, indem du den Knopf „Wischsperre“ zum Oberen Menü hinzufügst.</translation>
+        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \&quot;%1\&quot; button control to the Top Menu.</source>
+        <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.</oldsource>
+        <translation>Für manche Apps (z.B. Spiele) kann es hilfreich sein, das Kantenwischen ganz abzuschalten. Am besten geht das, indem du den Knopf „%1“ zum Oberen Menü hinzufügst.</translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-name">
         <source>Top Menu Settings</source>
