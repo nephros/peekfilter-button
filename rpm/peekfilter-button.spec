@@ -10,7 +10,7 @@ Name:       peekfilter-button
 %define theme sailfish-default
 
 Summary:    Configure Edge Swipes
-Version:    0.9.5
+Version:    0.9.6
 Release:    1
 Group:      Applications
 License:    ASL 2.0
@@ -30,12 +30,13 @@ This app serves two functions. One, it allows to set the peekBundaryWidth from
 the Settings app.  
 See https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe about that.
 
-Two: say you are playing a game or are editing an image in some app, but
-the edge swipe gets in the way and wants to minimize the app.  Simple,
-swipe down the Top Menu, tap the switch, swipe up again.  
+Two, say you are playing a game or are editing an image in some app, but
+the edge swipe gets in the way and wants to minimize the app.  
+Simple, swipe down the Top Menu, tap the switch, swipe up again.  
 Problem goes away.
 
 But DO remember to disable the switch again soon, else you will have a bad time interacting with SFOS ;)
+For safety reasons, the button automatically resets the original swipe boundary after 2-5 Minutes.
 
 %if "%{?vendor}" == "chum"
 PackageName: Edge Swipe Control
