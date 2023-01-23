@@ -9,7 +9,7 @@ Name:       peekfilter-button
 # << macros
 
 Summary:    Configure Edge Swipes
-Version:    0.9.2
+Version:    0.9.3
 Release:    1
 Group:      Applications
 License:    ASL 2.0
@@ -17,10 +17,6 @@ BuildArch:  noarch
 URL:        https://github.com/nephros/peekfilter-button
 Source0:    %{name}-%{version}.tar.gz
 Source100:  peekfilter-button.yaml
-Requires:   systemd
-Requires(post): systemd
-Requires(postun): systemd
-BuildRequires:  systemd
 BuildRequires:  qt5-qmake
 BuildRequires:  qt5-qttools-linguist
 BuildRequires:  qml-rpm-macros
@@ -38,8 +34,6 @@ swipe down the Top Menu, tap the switch, swipe up again.
 Problem goes away.
 
 But DO remember to disable the switch again soon, else you will have a bad time interacting with SFOS ;)
-
-After installing, you will have to restart Lipstick, so you can enable the switch.
 
 %if "%{?vendor}" == "chum"
 PackageName: Edge Swipe Control

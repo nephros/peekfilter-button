@@ -35,9 +35,7 @@ Page { id: page
 
     function setPeekBoundary(n) {
         const i = Math.floor(n)
-        if (i === 0) {
-            peekBoundaryUser.value = Math.floor(peekBoundary.value)
-        }
+        if (i === 0) peekBoundaryUser.value = Math.floor(peekBoundary.value)
         peekBoundary.value = i
     }
 
@@ -131,7 +129,7 @@ Page { id: page
             }
             PeekSlider { id: slider
                 value: peekBoundary.value ? peekBoundary.value : peekBoundary.defaultValue
-                onDownChanged: (down) ? 0 : page.setPeekBoundary(sliderValue)
+                onDownChanged: if (!down) page.setPeekBoundary(sliderValue)
             }
             Label {
                 width: parent.width - Theme.itemSizeSmall

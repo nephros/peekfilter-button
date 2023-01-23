@@ -40,7 +40,7 @@ section header</extracomment>
     <message id="settings-peekfilter-page-label-4">
         <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the &apos;%1&apos; button control to the Top Menu.</source>
         <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \&quot;%1\&quot; button control to the Top Menu.</oldsource>
-        <translation type="unfinished">Für manche Apps (z.B. Spiele) kann es hilfreich sein, das Kantenwischen ganz abzuschalten. Am besten geht das, indem du den Knopf „%1“ zum Oberen Menü hinzufügst.</translation>
+        <translation>Für manche Apps (z.B. Spiele) kann es hilfreich sein, das Kantenwischen ganz abzuschalten. Am besten geht das, indem du den Knopf „%1“ zum Oberen Menü hinzufügst.</translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-name">
         <source>Top Menu Settings</source>
@@ -50,7 +50,7 @@ section header</extracomment>
         <source>Look for &apos;%1&apos;</source>
         <oldsource>Look for \&quot;%1\&quot;</oldsource>
         <extracomment>%1 is the button name (id: settings-peekfilter-button)</extracomment>
-        <translation type="unfinished">Suche nach „%1“</translation>
+        <translation>Suche nach „%1“</translation>
     </message>
     <message id="settings-peekfilter-button-status-off">
         <source>Swipe Lock: off</source>
