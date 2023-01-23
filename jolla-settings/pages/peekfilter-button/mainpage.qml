@@ -137,8 +137,9 @@ Page { id: page
                 width: parent.width - Theme.itemSizeSmall
                 x: Theme.itemSizeSmall
                 wrapMode: Text.Wrap
-                color: Theme.secondaryHighlightColor
+                color: Theme.primaryColor
                 font.pixelSize: Theme.fontSizeExtraSmall
+                textFormat: Text.StyledText
                 //% "Careful: setting this too low will result in you not being able to swipe away applications at all."
                 text: qsTrId("settings-peekfilter-page-label-3")
             }
@@ -152,6 +153,7 @@ Page { id: page
                 wrapMode: Text.Wrap
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
+                textFormat: Text.StyledText
                 //% "For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \"%1\" button control to the Top Menu."
                 text: Theme.highlightText(
                         qsTrId("settings-peekfilter-page-label-4").arg(qsTrId("settings-peekfilter-button")),
