@@ -64,7 +64,7 @@ Page { id: page
             //% "Reset to default"
             //: menu entry
             MenuItem { text: qsTrId("settings-peekfilter-menu-reset")
-                onClicked: {
+                onDelayedClick: {
                     // setting a dconf key to undefined should 'dconf reset' it.
                     peekBoundary.value = undefined;
                     peekBoundaryUser.value = undefined;
