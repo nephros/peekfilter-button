@@ -62,10 +62,13 @@ SettingsToggle {
     }
 
     function setPeekBoundary(n) {
-        const i = Math.floor(n)
-        if (i === 0) peekBoundaryUser.value = Math.floor(peekBoundary.value)
-        peekBoundary.value = i
-        console.info("Setting boundary values (i, user, new): ", i, peekBoundaryUser.value, peekBoundary.value)
+        if ( n > 1) {
+            peekBoundary.value = Math.floor(n)
+        } else {
+            if (peekBoundary.value) peekBoundaryUser.value = Math.floor(peekBoundary.value)
+            peekBoundary.value = 0
+        }
+        console.info("Setting boundary values (n, user, new): ", n, peekBoundaryUser.value, peekBoundary.value)
     }
 
     menu: ContextMenu {
