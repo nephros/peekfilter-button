@@ -11,10 +11,10 @@ Page { id: page
     QtObject {
         //% "Edge Swipe"
         //: entry name in the settings
-        property string name: qsTrId("settings-peekfilter-page")
+        property string pagename: qsTrId("settings-peekfilter-page")
         //% "Swipe Lock"
         //: button name in the top menu
-        property string name: qsTrId("settings-peekfilter-button")
+        property string buttonname: qsTrId("settings-peekfilter-button")
     }
 
     ConfigurationValue { id: peekBoundary
