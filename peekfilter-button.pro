@@ -1,3 +1,3 @@
 TEMPLATE = subdirs
-SUBDIRS =  jolla-settings
+SUBDIRS =  jolla-settings icons
 

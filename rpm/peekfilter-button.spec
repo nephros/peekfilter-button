@@ -7,9 +7,10 @@ Name:       peekfilter-button
 
 # >> macros
 # << macros
+%define theme sailfish-default
 
 Summary:    Configure Edge Swipes
-Version:    0.9.4
+Version:    0.9.5
 Release:    1
 Group:      Applications
 License:    ASL 2.0
@@ -18,6 +19,7 @@ URL:        https://github.com/nephros/peekfilter-button
 Source0:    %{name}-%{version}.tar.gz
 Source100:  peekfilter-button.yaml
 BuildRequires:  qt5-qmake
+BuildRequires:  sailfish-svg2png
 BuildRequires:  qt5-qttools-linguist
 BuildRequires:  qml-rpm-macros
 
@@ -44,7 +46,7 @@ Categories:
   - Settings
 Custom:
   Repo: %{url}
-Icon: https://sailfishos.org/content/sailfishos-docs//sailfish-content-graphics-default/latest/images/icon-m-gesture.svg
+Icon: %{url}/raw/master/icons/svgs/icon-m-peekfilter.svg
 Screenshots:
   - %{url}/raw/master/Screenshot_001.png
   - %{url}/raw/master/Screenshot_002.png
@@ -93,5 +95,6 @@ rm -rf %{buildroot}
 %{_datadir}/jolla-settings/pages/%{name}/PeekSlider.qml
 %{_datadir}/jolla-settings/pages/%{name}/mainpage.qml
 %{_datadir}/translations/*.qm
+%{_datadir}/themes/%{theme}/meegotouch/z*/icons/*.png
 # >> files
 # << files

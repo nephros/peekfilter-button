@@ -35,7 +35,8 @@ SettingsToggle {
     //% "Swipe Lock: on"
     //: button status
     activeText: qsTrId("settings-peekfilter-button-status-on")
-    icon.source: "image://theme/icon-m-gesture"
+
+    icon.source: checked ? "image://theme/icon-m-peekfilter-lock" : "image://theme/icon-m-peekfilter-unlock"
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
