@@ -17,6 +17,21 @@ Page { id: page
         property string buttonname: qsTrId("settings-peekfilter-button")
     }
 
+    /*
+     * from /usr/share/lipstick-jolla-home-qt5/compositor.qml, Line 214
+     *
+        ConfigurationGroup {
+            id: peekFilterConfigs
+            path: "/desktop/lipstick-jolla-home/peekfilter"
+            property int boundaryWidth: Theme.paddingLarge
+            property int boundaryHeight: Theme.paddingLarge
+            property int keyboardBoundaryWidth: boundaryWidth / 2
+            property int keyboardBoundaryHeight: boundaryHeight / 2
+            property int pressDelay: 400
+        }
+    */
+
+
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
         defaultValue: (peekBoundaryUser.value !== 0) ? peekBoundaryUser : undefined
@@ -50,9 +65,10 @@ Page { id: page
             //: menu entry
             MenuItem { text: qsTrId("settings-peekfilter-menu-reset")
                 onClicked: {
-                peekBoundary.value = undefined;
-                peekBoundaryUser.value = undefined;
-                pageStack.navigateBack()
+                    // setting a dconf key to undefined should 'dconf reset' it.
+                    peekBoundary.value = undefined;
+                    peekBoundaryUser.value = undefined;
+                    pageStack.navigateBack()
                 }
             }
         }
