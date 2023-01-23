@@ -8,7 +8,7 @@ Name:       peekfilter-button
 # >> macros
 # << macros
 
-Summary:    Control edge swipes
+Summary:    Configure Edge Swipes
 Version:    0.9.2
 Release:    1
 Group:      Applications
