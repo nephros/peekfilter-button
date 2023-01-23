@@ -39,7 +39,6 @@ section header</extracomment>
     </message>
     <message id="settings-peekfilter-page-label-4">
         <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the &apos;%1&apos; button control to the Top Menu.</source>
-        <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \&quot;%1\&quot; button control to the Top Menu.</oldsource>
         <translation>Für manche Apps (z.B. Spiele) kann es hilfreich sein, das Kantenwischen ganz abzuschalten. Am besten geht das, indem du den Knopf „%1“ zum Oberen Menü hinzufügst.</translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-name">
@@ -48,7 +47,6 @@ section header</extracomment>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-hint">
         <source>Look for &apos;%1&apos;</source>
-        <oldsource>Look for \&quot;%1\&quot;</oldsource>
         <extracomment>%1 is the button name (id: settings-peekfilter-button)</extracomment>
         <translation>Suche nach „%1“</translation>
     </message>
@@ -63,12 +61,12 @@ section header</extracomment>
         <translation>Wischsperre: an</translation>
     </message>
     <message id="settings-peekfilter-controls-slider">
-        <source>Swipe width</source>
+        <source>Edge width</source>
         <extracomment>app name in the settings</extracomment>
         <translation>Kantenbreite</translation>
     </message>
     <message id="settings-peekfilter-page-section-swipe">
-        <source>Swipe Width</source>
+        <source>Edge Width</source>
         <extracomment>section header</extracomment>
         <translation>Kantenbreite</translation>
     </message>

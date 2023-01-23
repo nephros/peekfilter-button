@@ -10,7 +10,7 @@ import Sailfish.Silica 1.0
 Slider { id: slider
     width: parent.width
 
-    //% "Swipe width"
+    //% "Edge width"
     //: app name in the settings
     label: qsTrId("settings-peekfilter-controls-slider")
 

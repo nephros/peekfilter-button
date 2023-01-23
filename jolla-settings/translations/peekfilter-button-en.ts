@@ -4,7 +4,8 @@
 <context>
     <name></name>
     <message id="settings-peekfilter-controls-slider">
-        <source>Swipe width</source>
+        <source>Edge width</source>
+        <oldsource>Swipe width</oldsource>
         <extracomment>app name in the settings</extracomment>
         <translation type="unfinished"></translation>
     </message>
@@ -41,7 +42,7 @@ section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-section-swipe">
-        <source>Swipe Width</source>
+        <source>Edge Width</source>
         <extracomment>section header</extracomment>
         <translation type="unfinished"></translation>
     </message>

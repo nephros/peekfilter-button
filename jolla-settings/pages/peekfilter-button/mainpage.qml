@@ -63,7 +63,7 @@ Page { id: page
             //: Settings page title
             PageHeader { title: qsTrId("settings-peekfilter-page-title") }
 
-            //% "Swipe Width"
+            //% "Edge Width"
             //: section header
             SectionHeader { text: qsTrId("settings-peekfilter-page-section-swipe") }
 
