@@ -74,7 +74,7 @@ Page { id: page
                 wrapMode: Text.Wrap
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                //% "The slider below enables you to configure the area of the screen which is recognized as an 'Edge Swipe' gesture (as opposed to a swipe within an application window)."
+                //% "The slider below allows to adjust the area of the screen recognized as an 'Edge Swipe' gesture (as opposed to a swipe within an app window)."
                 text: qsTrId("settings-peekfilter-page-label-1")
             }
             LinkedLabel {
@@ -157,7 +157,7 @@ Page { id: page
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
                 textFormat: Text.StyledText
-                //% "For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the '%1' button control to the Top Menu."
+                //% "For certain apps it can be useful to disable the edge swipe completely. To do that you can add the '%1' button control to the Top Menu."
                 text: Theme.highlightText(
                         qsTrId("settings-peekfilter-page-label-4").arg(qsTrId("settings-peekfilter-button")),
                         qsTrId("settings-peekfilter-button"),

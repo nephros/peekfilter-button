@@ -6,7 +6,7 @@
     <message id="settings-peekfilter-controls-slider">
         <source>Edge width</source>
         <oldsource>Swipe width</oldsource>
-        <extracomment>app name in the settings</extracomment>
+        <extracomment>peek slider label</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page">
@@ -47,7 +47,8 @@ section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-label-1">
-        <source>The slider below enables you to configure the area of the screen which is recognized as an &apos;Edge Swipe&apos; gesture (as opposed to a swipe within an application window).</source>
+        <source>The slider below allows to adjust the area of the screen recognized as an &apos;Edge Swipe&apos; gesture (as opposed to a swipe within an app window).</source>
+        <oldsource>The slider below enables you to configure the area of the screen which is recognized as an &apos;Edge Swipe&apos; gesture (as opposed to a swipe within an application window).</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-label-2">
@@ -59,7 +60,8 @@ section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-label-4">
-        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the &apos;%1&apos; button control to the Top Menu.</source>
+        <source>For certain apps it can be useful to disable the edge swipe completely. To do that you can add the &apos;%1&apos; button control to the Top Menu.</source>
+        <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the &apos;%1&apos; button control to the Top Menu.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-name">

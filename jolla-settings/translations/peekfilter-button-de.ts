@@ -8,7 +8,7 @@
         <extracomment>button name in the top menu
 ----------
 section header</extracomment>
-        <translation>Wischsperre</translation>
+        <translation>Kantensperre</translation>
     </message>
     <message id="settings-peekfilter-page">
         <source>Edge Swipe</source>
@@ -26,24 +26,24 @@ section header</extracomment>
         <translation>Wischkante</translation>
     </message>
     <message id="settings-peekfilter-page-label-1">
-        <source>The slider below enables you to configure the area of the screen which is recognized as an &apos;Edge Swipe&apos; gesture (as opposed to a swipe within an application window).</source>
-        <translation>Der Schieberegler unten lässt dich den Bereich des Bildschirms festlegen, der als Wischgeste an den Kanten erkannt wird (im Gegensatz zu einer Geste in einer App). </translation>
+        <source>The slider below allows to adjust the area of the screen recognized as an &apos;Edge Swipe&apos; gesture (as opposed to a swipe within an app window).</source>
+        <translation>Legt den Bereich am Rand des Bildschirms fest, der als Kantengeste erkannt wird (im Gegensatz zu einer Geste in einer App).</translation>
     </message>
     <message id="settings-peekfilter-page-label-2">
         <source>Adjusting this can help when edge swipes are not recognized reliably. For more information, see https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe</source>
-        <translation>Das zu verändern kann helfen, wenn diese Gesten nicht zuverlässig erkannt werden. Für mehr Informationen siehe https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe</translation>
+        <translation>Das anzupassen kann helfen, falls diese Gesten nicht zufriedenstellend erkannt werden. Für mehr Informationen siehe https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe</translation>
     </message>
     <message id="settings-peekfilter-page-label-3">
         <source>Careful: setting this too low will result in you not being able to swipe away applications at all.</source>
         <translation>Vorsicht: wenn du den Wert zu klein setzt wirst du Apps nicht mehr seitlich wegwischen können.</translation>
     </message>
     <message id="settings-peekfilter-page-label-4">
-        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the &apos;%1&apos; button control to the Top Menu.</source>
-        <translation>Für manche Apps (z.B. Spiele) kann es hilfreich sein, das Kantenwischen ganz abzuschalten. Am besten geht das, indem du den Knopf „%1“ zum Oberen Menü hinzufügst.</translation>
+        <source>For certain apps it can be useful to disable the edge swipe completely. To do that you can add the &apos;%1&apos; button control to the Top Menu.</source>
+        <translation>Für manche Apps kann es hilfreich sein, die Kantengesten ganz abzuschalten. Dazu kannst du den Knopf „%1“ zum Oberen Menü hinzufügen.</translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-name">
         <source>Top Menu Settings</source>
-        <translation>Einstellung Oberes Menü</translation>
+        <translation>Einstellungen Oberes Menü</translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-hint">
         <source>Look for &apos;%1&apos;</source>
@@ -53,16 +53,16 @@ section header</extracomment>
     <message id="settings-peekfilter-button-status-off">
         <source>Swipe Lock: off</source>
         <extracomment>button status</extracomment>
-        <translation>Wischsperre: aus</translation>
+        <translation>Kantensperre: aus</translation>
     </message>
     <message id="settings-peekfilter-button-status-on">
         <source>Swipe Lock: on</source>
         <extracomment>button status</extracomment>
-        <translation>Wischsperre: an</translation>
+        <translation>Kantensperre: an</translation>
     </message>
     <message id="settings-peekfilter-controls-slider">
         <source>Edge width</source>
-        <extracomment>app name in the settings</extracomment>
+        <extracomment>peek slider label</extracomment>
         <translation>Kantenbreite</translation>
     </message>
     <message id="settings-peekfilter-page-section-swipe">

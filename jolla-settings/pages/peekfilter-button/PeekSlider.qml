@@ -11,7 +11,7 @@ Slider { id: slider
     width: parent.width
 
     //% "Edge width"
-    //: app name in the settings
+    //: peek slider label
     label: qsTrId("settings-peekfilter-controls-slider")
 
     stepSize: 4; minimumValue: 0; maximumValue: Screen.width / 8
