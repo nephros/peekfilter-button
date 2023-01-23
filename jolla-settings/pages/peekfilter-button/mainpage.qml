@@ -72,7 +72,7 @@ Page { id: page
             Label {
                 width: parent.width
                 wrapMode: Text.Wrap
-                color: Theme.highlightColor
+                color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
                 //% "The slider below enables you to configure the area of the screen which is recognized as an 'Edge Swipe' gesture (as opposed to a swipe within an application window)."
                 text: qsTrId("settings-peekfilter-page-label-1")
@@ -80,7 +80,7 @@ Page { id: page
             LinkedLabel {
                 width: parent.width
                 wrapMode: Text.Wrap
-                color: Theme.highlightColor
+                color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
                 //% "Adjusting this can help when edge swipes are not recognized reliably. For more information, see https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe"
                 plainText: qsTrId("settings-peekfilter-page-label-2")
@@ -137,7 +137,7 @@ Page { id: page
                 width: parent.width - Theme.itemSizeSmall
                 x: Theme.itemSizeSmall
                 wrapMode: Text.Wrap
-                color: Theme.secondaryColor
+                color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeExtraSmall
                 //% "Careful: setting this too low will result in you not being able to swipe away applications at all."
                 text: qsTrId("settings-peekfilter-page-label-3")
@@ -150,10 +150,14 @@ Page { id: page
             Label {
                 width: parent.width
                 wrapMode: Text.Wrap
-                color: Theme.highlightColor
+                color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                //% "For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu."
-                text: qsTrId("settings-peekfilter-page-label-4")
+                //% "For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \"%1\" button control to the Top Menu."
+                text: Theme.highlightText(
+                        qsTrId("settings-peekfilter-page-label-4").arg(qsTrId("settings-peekfilter-button")),
+                        qsTrId("settings-peekfilter-button"),
+                        Theme.highlightColor
+                )
             }
             ValueButton {
                 //% "Top Menu Settings"
