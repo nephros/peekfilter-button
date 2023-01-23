@@ -46,11 +46,26 @@ SettingsToggle {
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
     }
 
+    Timer {
+        running: active
+        interval: 2.5 * 60 * 1000
+        onRunningChanged: {
+            if (running) {
+                console.info("BackgroundJob started.")
+            } else {
+                console.info("BackgroundJob stopped.")
+            }
+        }
+        onTriggered: {
+            setPeekBoundary( (peekBoundaryUser.value !== 0) ? peekBoundaryUser.value : undefined )
+        }
+    }
+
     function setPeekBoundary(n) {
         const i = Math.floor(n)
         if (i === 0) peekBoundaryUser.value = Math.floor(peekBoundary.value)
         peekBoundary.value = i
-        console.debug("Setting values (i, user, new): ", i, peekBoundaryUser.value, peekBoundary.value)
+        console.info("Setting boundary values (i, user, new): ", i, peekBoundaryUser.value, peekBoundary.value)
     }
 
     menu: ContextMenu {
