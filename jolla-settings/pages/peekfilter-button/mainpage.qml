@@ -197,7 +197,7 @@ Page { id: page
                       )
                     + "<br />"
                     //% "Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes."
-                    + qsTrId("settings-peekfilter-page-label-5").arg(qsTrId("settings-peekfilter-button"))
+                    + qsTrId("settings-peekfilter-page-label-5").arg(qsTrId("settings-peekfilter-button")).arg("2.5")
             }
             ValueButton {
                 //% "Top Menu Settings"
