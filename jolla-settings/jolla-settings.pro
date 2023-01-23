@@ -1,7 +1,5 @@
 TEMPLATE = aux
 
-CONFIG += sailfishapp_i18n_idbased
-
 settings-entry.path = /usr/share/jolla-settings/entries
 settings-entry.files = ./entries/peekfilter-button.json
 
