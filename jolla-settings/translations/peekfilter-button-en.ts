@@ -38,8 +38,8 @@ section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-label-4">
-        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \&quot;%1\&quot; button control to the Top Menu.</source>
-        <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.</oldsource>
+        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the &apos;%1&apos; button control to the Top Menu.</source>
+        <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \&quot;%1\&quot; button control to the Top Menu.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-name">
@@ -47,7 +47,8 @@ section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-hint">
-        <source>Look for \&quot;%1\&quot;</source>
+        <source>Look for &apos;%1&apos;</source>
+        <oldsource>Look for \&quot;%1\&quot;</oldsource>
         <extracomment>%1 is the button name (id: settings-peekfilter-button)</extracomment>
         <translation type="unfinished"></translation>
     </message>
@@ -67,7 +68,8 @@ section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-section-swipe">
-        <source>Edge Swipe</source>
+        <source>Swipe Width</source>
+        <oldsource>Edge Swipe</oldsource>
         <extracomment>section header</extracomment>
         <translation type="unfinished"></translation>
     </message>

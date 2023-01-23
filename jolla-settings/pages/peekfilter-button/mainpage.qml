@@ -65,7 +65,7 @@ Page { id: page
             //: Settings page title
             PageHeader { title: qsTrId("settings-peekfilter-page-title") }
 
-            //% "Edge Swipe"
+            //% "Swipe Width"
             //: section header
             SectionHeader { text: qsTrId("settings-peekfilter-page-section-swipe") }
 
@@ -154,7 +154,7 @@ Page { id: page
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
                 textFormat: Text.StyledText
-                //% "For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \"%1\" button control to the Top Menu."
+                //% "For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the '%1' button control to the Top Menu."
                 text: Theme.highlightText(
                         qsTrId("settings-peekfilter-page-label-4").arg(qsTrId("settings-peekfilter-button")),
                         qsTrId("settings-peekfilter-button"),
@@ -164,7 +164,7 @@ Page { id: page
             ValueButton {
                 //% "Top Menu Settings"
                 label: qsTrId("settings-peekfilter-page-topmenu-settings-name")
-                //% "Look for \"%1\""
+                //% "Look for '%1'"
                 //: %1 is the button name (id: settings-peekfilter-button)
                 description: qsTrId("settings-peekfilter-page-topmenu-settings-hint").arg(qsTrId("settings-peekfilter-button"));
                 //onClicked: pageStack.push(Qt.resolvedUrl("../topmenu/topmenu.qml"))

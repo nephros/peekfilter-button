@@ -38,18 +38,19 @@ section header</extracomment>
         <translation>Vorsicht: wenn du den Wert zu klein setzt wirst du Apps nicht mehr seitlich wegwischen können.</translation>
     </message>
     <message id="settings-peekfilter-page-label-4">
-        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \&quot;%1\&quot; button control to the Top Menu.</source>
-        <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.</oldsource>
-        <translation>Für manche Apps (z.B. Spiele) kann es hilfreich sein, das Kantenwischen ganz abzuschalten. Am besten geht das, indem du den Knopf „%1“ zum Oberen Menü hinzufügst.</translation>
+        <source>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the &apos;%1&apos; button control to the Top Menu.</source>
+        <oldsource>For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the \&quot;%1\&quot; button control to the Top Menu.</oldsource>
+        <translation type="unfinished">Für manche Apps (z.B. Spiele) kann es hilfreich sein, das Kantenwischen ganz abzuschalten. Am besten geht das, indem du den Knopf „%1“ zum Oberen Menü hinzufügst.</translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-name">
         <source>Top Menu Settings</source>
         <translation>Einstellung Oberes Menü</translation>
     </message>
     <message id="settings-peekfilter-page-topmenu-settings-hint">
-        <source>Look for \&quot;%1\&quot;</source>
+        <source>Look for &apos;%1&apos;</source>
+        <oldsource>Look for \&quot;%1\&quot;</oldsource>
         <extracomment>%1 is the button name (id: settings-peekfilter-button)</extracomment>
-        <translation>Suche nach „%1“</translation>
+        <translation type="unfinished">Suche nach „%1“</translation>
     </message>
     <message id="settings-peekfilter-button-status-off">
         <source>Swipe Lock: off</source>
@@ -67,7 +68,7 @@ section header</extracomment>
         <translation>Kantenbreite</translation>
     </message>
     <message id="settings-peekfilter-page-section-swipe">
-        <source>Edge Swipe</source>
+        <source>Swipe Width</source>
         <extracomment>section header</extracomment>
         <translation>Kantenbreite</translation>
     </message>
