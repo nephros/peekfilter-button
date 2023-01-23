@@ -2,6 +2,19 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name></name>
+    <message id="settings-peekfilter-button">
+        <source>Swipe Lock</source>
+        <extracomment>app name in the settings</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-page">
+        <source>Edge Swipe</source>
+        <extracomment>app name in the settings</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EnableSwitch</name>
     <message>
         <source>Swipe Lock</source>

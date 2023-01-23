@@ -17,12 +17,24 @@ SettingsToggle {
     checked: peekBoundary.value === 0
     active: checked
 
-    /* string is just here to get caught for translations */
-    property string titledummy: qsTr("Swipe Lock", "title of the Settings entry")
+    /*
+     * this is just here to have IDs for translations used in entries.json
+     */
+    QtObject {
+        //% "Edge Swipe"
+        //: entry name in the settings
+        property string name: qsTrId("settings-peekfilter-page")
+        //% "Swipe Lock"
+        //: button name in the top menu
+        property string name: qsTrId("settings-peekfilter-button")
+    }
 
-
-    name: qsTr("Swipe Lock: off")
-    activeText: qsTr("Swipe Lock: on")
+    //% "Swipe Lock: off"
+    //: button status
+    name: qsTrId("settings-peekfilter-button-status-off")
+    //% "Swipe Lock: on"
+    //: button status
+    activeText: qsTrId("settings-peekfilter-button-status-on")
     icon.source: "image://theme/icon-m-gesture"
 
     ConfigurationValue { id: peekBoundary

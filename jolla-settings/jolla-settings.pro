@@ -1,5 +1,7 @@
 TEMPLATE = aux
 
+CONFIG += sailfishapp_i18n_idbased
+
 settings-entry.path = /usr/share/jolla-settings/entries
 settings-entry.files = ./entries/peekfilter-button.json
 
@@ -19,4 +21,5 @@ lupdate_only {
 TRANSLATIONS += translations/peekfilter-button-en.ts \
                 translations/peekfilter-button-de.ts
 
+include(entries/entries.pri)
 include(translations/translations.pri)

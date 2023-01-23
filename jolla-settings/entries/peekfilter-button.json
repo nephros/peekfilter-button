@@ -5,6 +5,7 @@
             "path": "system_settings/look_and_feel/peekfilter-button",
             "type": "page",
             "title": "Edge Swipe",
+            "translation_id": "settings-peekfilter-page",
             "order": 1000,
             "icon": "image://theme/icon-m-gesture",
             "params": {
@@ -17,6 +18,7 @@
             "type": "custom",
             "icon": "image://theme/icon-m-gesture",
             "title": "Swipe Lock",
+            "translation_id": "settings-peekfilter-button",
             "params": {
                 "source": "/usr/share/jolla-settings/pages/peekfilter-button/EnableSwitch.qml",
                 "type": "grid",

@@ -5,8 +5,17 @@ import Nemo.Configuration 1.0
 
 Page { id: page
 
-    /* string is just here to get caught for translations */
-    property string titledummy: qsTr("Edge Swipe", "title of the Settings entry")
+    /*
+     * this is just here to have IDs for translations used in entries.json
+     */
+    QtObject {
+        //% "Edge Swipe"
+        //: entry name in the settings
+        property string name: qsTrId("settings-peekfilter-page")
+        //% "Swipe Lock"
+        //: button name in the top menu
+        property string name: qsTrId("settings-peekfilter-button")
+    }
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
@@ -37,7 +46,9 @@ Page { id: page
         contentHeight: column.height
 
         PullDownMenu {
-            MenuItem { text: qsTr("Reset to default")
+            //% "Reset to default"
+            //: menu entry
+            MenuItem { text: qsTrId("settings-peekfilter-menu-reset")
                 onClicked: {
                 peekBoundary.value = undefined;
                 peekBoundaryUser.value = undefined;
@@ -50,21 +61,29 @@ Page { id: page
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: Theme.paddingMedium
 
-            PageHeader { title: qsTr("Edge Swipe") }
+            //% "Edge Swipe"
+            //: Settings page title
+            PageHeader { title: qsTrId("settings-peekfilter-page-title") }
+
+            //% "Edge Swipe"
+            //: section header
+            SectionHeader { text: qsTrId("settings-peekfilter-page-section-swipe") }
 
             Label {
                 width: parent.width
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("The slider below enables you to configure the area of the screen which is recognized as an 'Edge Swipe' gesture (as opposed to a swipe within an application window).")
+                //% "The slider below enables you to configure the area of the screen which is recognized as an 'Edge Swipe' gesture (as opposed to a swipe within an application window)."
+                text: qsTrId("settings-peekfilter-page-label-1")
             }
             LinkedLabel {
                 width: parent.width
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                plainText: qsTr("Adjusting this can help when edge swipes are not recognized reliably. For more information, see https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe")
+                //% "Adjusting this can help when edge swipes are not recognized reliably. For more information, see https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe"
+                plainText: qsTrId("settings-peekfilter-page-label-2")
                 shortenUrl: true
             }
             Item {
@@ -120,21 +139,28 @@ Page { id: page
                 wrapMode: Text.Wrap
                 color: Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeExtraSmall
-                text: qsTr("Careful: setting this too low will result in you not being able to swipe away applications at all.")
+                //% "Careful: setting this too low will result in you not being able to swipe away applications at all."
+                text: qsTrId("settings-peekfilter-page-label-3")
             }
 
-            SectionHeader { text: qsTr("Swipe Lock") }
+            //% "Swipe Lock"
+            //: section header
+            SectionHeader { text: qsTrId("settings-peekfilter-button") }
 
             Label {
                 width: parent.width
                 wrapMode: Text.Wrap
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu.")
+                //% "For certain applications (like some games) it can be useful to reduce or disable the boundary completely. The most convenient way to do that is to add the Swipe Lock button control to the Top Menu."
+                text: qsTrId("settings-peekfilter-page-label-4")
             }
             ValueButton {
-                label: qsTr("Top Menu Settings")
-                description: qsTr('Look for "%1"').arg("Swipe Lock");
+                //% "Top Menu Settings"
+                label: qsTrId("settings-peekfilter-page-topmenu-settings-name")
+                //% "Look for \"%1\""
+                //: %1 is the button name (id: settings-peekfilter-button)
+                description: qsTrId("settings-peekfilter-page-topmenu-settings-hint").arg(qsTrId("settings-peekfilter-button"));
                 //onClicked: pageStack.push(Qt.resolvedUrl("../topmenu/topmenu.qml"))
                 onClicked: { settings.open("system_settings/look_and_feel/topmenu") }
             }

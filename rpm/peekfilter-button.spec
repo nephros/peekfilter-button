@@ -9,7 +9,7 @@ Name:       peekfilter-button
 # << macros
 
 Summary:    Control edge swipes
-Version:    0.9.1
+Version:    0.9.2
 Release:    1
 Group:      Applications
 License:    ASL 2.0
