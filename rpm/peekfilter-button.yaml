@@ -1,6 +1,6 @@
 Name: peekfilter-button
 Summary: Configure Edge Swipes
-Version: 0.9.2
+Version: 0.9.3
 Release: 1
 Group: Applications
 License: ASL 2.0
@@ -21,8 +21,6 @@ Description: |
      Problem goes away.
 
      But DO remember to disable the switch again soon, else you will have a bad time interacting with SFOS ;)
-
-     After installing, you will have to restart Lipstick, so you can enable the switch.
 
      %if "%{?vendor}" == "chum"
      PackageName: Edge Swipe Control
@@ -51,14 +49,10 @@ Description: |
 #Macros:
 #Patches:
 #  - 'baz'
-Requires:
-  - systemd
-RequiresPost:
-  - systemd
-RequiresPostUn:
-  - systemd
+#Requires:
+#RequiresPost:
+#RequiresPostUn:
 PkgBR:
-  - systemd
   # for the UI:
   - qt5-qmake
   # sailfish-svg2png
