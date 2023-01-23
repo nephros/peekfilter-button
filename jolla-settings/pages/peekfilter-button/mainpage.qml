@@ -210,7 +210,7 @@ Page { id: page
         anchors.verticalCenter: parent.verticalCenter
         width: slider.value
         height: parent.height
-        color: Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
+        color: Theme.rgba(((width < Theme.paddingLarge/2) ? "red" : Theme.highlightColor), Theme.opacityFaint)
     }
     Rectangle {
         z: 10
@@ -219,7 +219,7 @@ Page { id: page
         anchors.verticalCenter: parent.verticalCenter
         width: slider.value
         height: parent.height
-        color: Theme.rgba(Theme.highlightColor, Theme.opacityFaint)
+        color: Theme.rgba(((width < Theme.paddingLarge/2) ? "red" : Theme.highlightColor), Theme.opacityFaint)
     }
 }
 

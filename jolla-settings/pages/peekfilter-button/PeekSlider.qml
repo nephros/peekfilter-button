@@ -16,7 +16,11 @@ Slider { id: slider
 
     stepSize: 4; minimumValue: 0; maximumValue: Screen.width / 8
     valueText: Math.floor(sliderValue) + "px"
-    color: (value < 40) ? Theme.highlightFromColor("orange", Theme.colorScheme) : Theme.lightPrimaryColor
+    color: {
+        if (sliderValue < Theme.paddingLarge/2) return Theme.highlightFromColor("red", Theme.colorScheme)
+        if (value < Theme.paddingMedium)        return Theme.highlightFromColor("orange", Theme.colorScheme)
+        return Theme.lightPrimaryColor
+    }
 }
 
 // vim: ft=javascript expandtab ts=4 sw=4 st=4
