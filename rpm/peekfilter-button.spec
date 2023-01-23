@@ -9,7 +9,7 @@ Name:       peekfilter-button
 # << macros
 
 Summary:    Configure Edge Swipes
-Version:    0.9.3
+Version:    0.9.4
 Release:    1
 Group:      Applications
 License:    ASL 2.0
