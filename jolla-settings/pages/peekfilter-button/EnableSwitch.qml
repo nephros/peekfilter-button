@@ -42,24 +42,27 @@ SettingsToggle {
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
+        onValueChanged: console.debug("peekBoundary is now", typeof(value), value)
     }
     ConfigurationValue { id: peekBoundaryUser
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
+        onValueChanged: console.debug("peekBoundaryUser is now", typeof(value), value)
     }
 
     Timer {
-        running: (active && DeviceLock.enabled)
+        running: (active && DeviceLock.enabled && timeout > 0)
         // automaticLocking is in minutes, lets reset 10 seconds before that:
-        interval: ((DeviceLock.automaticLocking * 60) - 10) * 1000
+        property int timeout: ((DeviceLock.automaticLocking * 60) - 10) * 1000
+        interval: (timeout > 0) ? timeout : 0
         onRunningChanged: {
             if (running) {
-                console.info("Swipe Lock: Reset timer started:", interval)
+                console.info("Swipe Lock: Reset timer started:", Math.floor(interval/1000) + "s")
             } else {
                 console.info("Swipe Lock: Reset timer stopped.")
             }
         }
         onTriggered: resetPeekBoundary()
-        Component.onCompleted: console.debug(qsTr("Swipe Lock: Device Lock is %1 enabled, %1 arming Timer.").arg(DeviceLock.enabled ? "" : "not"))
+        Component.onCompleted: console.debug(qsTr("Swipe Lock: Device Lock is %1 enabled with timeout %2, %1 arming Timer.").arg(DeviceLock.enabled ? "" : "not").arg(DeviceLock.automaticLocking))
     }
 
     DBusInterface { id: lockbus
@@ -67,15 +70,12 @@ SettingsToggle {
         service: 'org.nemomobile.devicelock'
         path:    '/devicelock'
         iface:   'org.nemomobile.lipstick.devicelock'
+
         signalsEnabled: true
-        property int lockState
-        onLockStateChanged: console.debug("Swipe Lock: Device lock custom state changed: ", lockState )
         function stateChanged() {
-            console.info("Swipe Lock: Device lock stateChanged signal")
-            call("state",undefined,
-                function(result) {
-                    lockbus.lockState = result
-                    console.info("Swipe Lock: Device lock state:", result)
+            console.debug("Swipe Lock: Device Lock stateChanged signal")
+            call("state",undefined,function(result) {
+                    console.debug("Swipe Lock: Device lock state:", result)
                     if (result !== 0) { enableSwitch.resetPeekBoundary() }
                 },
                 function(error, message) { console.warn("Swipe Lock: Call failed:", error, message) }
@@ -84,18 +84,19 @@ SettingsToggle {
     }
 
     function resetPeekBoundary() {
-        console.debug("Swipe Lock: Resetting boundary values.")
+        console.info("Swipe Lock: Resetting boundary values.")
         setPeekBoundary( (peekBoundaryUser.value !== 0) ? peekBoundaryUser.value : undefined )
     }
 
     function setPeekBoundary(n) {
+        console.debug("Swipe Lock: Setting boundary values (n, user, new): ", n, peekBoundaryUser.value, peekBoundary.value)
         if ( n > 1) {
             peekBoundary.value = Math.floor(n)
         } else {
             if (peekBoundary.value) peekBoundaryUser.value = Math.floor(peekBoundary.value)
             peekBoundary.value = 0
         }
-        console.info("Swipe Lock: Setting boundary values (n, user, new): ", n, peekBoundaryUser.value, peekBoundary.value)
+        console.debug("Swipe Lock: Boundary values now: (n, user, new): ", n, peekBoundaryUser.value, peekBoundary.value)
     }
 
     menu: ContextMenu {
@@ -107,10 +108,10 @@ SettingsToggle {
     }
     onToggled: {
         if (!checked) {
-            console.info("Swipe Lock v@@UNRELEASED@@ engaged.")
+            console.info("Swipe Lock: engaged.")
             setPeekBoundary(0)
         } else {
-            console.info("Swipe Lock v@@UNRELEASED@@ dis-engaged.")
+            console.info("Swipe Lock: dis-engaged.")
             setPeekBoundary(peekBoundaryUser.value)
         }
     }

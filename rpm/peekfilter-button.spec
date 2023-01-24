@@ -88,7 +88,7 @@ rm -rf %{buildroot}
 
 # >> install post
 # mangle version info
-sed -i -e "s/@@UNRELEASED@@/%{version}/" %{buildroot}%{_datadir}/jolla-settings/pages/%{name}/EnableSwitch.qml
+sed -i -e "s/@@UNRELEASED@@/%{version}-%{release}/" %{buildroot}%{_datadir}/jolla-settings/pages/%{name}/EnableSwitch.qml
 # << install post
 
 %files
