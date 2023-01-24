@@ -23,12 +23,12 @@ section header</extracomment>
     </message>
     <message id="settings-peekfilter-button-status-off">
         <source>Swipe Lock: off</source>
-        <extracomment>button status</extracomment>
+        <extracomment>top menu button status text</extracomment>
         <translation>Sveplås: Av</translation>
     </message>
     <message id="settings-peekfilter-button-status-on">
         <source>Swipe Lock: on</source>
-        <extracomment>button status</extracomment>
+        <extracomment>top menu button status text</extracomment>
         <translation>Sveplås: På</translation>
     </message>
     <message id="settings-peekfilter-menu-reset">
@@ -74,9 +74,9 @@ section header</extracomment>
         <translation>Leta efter &quot;%1&quot;</translation>
     </message>
     <message id="settings-peekfilter-page-label-5">
-        <source>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</source>
-        <oldsource>As a safety measure, %1 will disable itself automatically after 2.5 Minutes.</oldsource>
-        <translation>Som en säkerhetsåtgärd kommer %1 att automatiskt inaktivera sig själv efter %2 minuter.</translation>
+        <source>Notice: As a safety measure, %1 will disable itself automatically shortly before the device lock engages.</source>
+        <oldsource>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</oldsource>
+        <translation type="unfinished">Som en säkerhetsåtgärd kommer %1 att automatiskt inaktivera sig själv efter %2 minuter.</translation>
     </message>
 </context>
 </TS>
