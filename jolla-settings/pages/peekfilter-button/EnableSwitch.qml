@@ -50,18 +50,18 @@ SettingsToggle {
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
-        onValueChanged: console.debug("peekBoundary is now", typeof(value), value)
+        onValueChanged: console.info("peekBoundary is now", typeof(value), value)
     }
 
     // previously: peekBoundaryUser
     ConfigurationValue { id: peekBoundaryStored
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
-        onValueChanged: console.debug("peekBoundaryStored is now", typeof(value), value)
+        onValueChanged: console.info("peekBoundaryStored is now", typeof(value), value)
     }
 
 
     Timer {
-        running: (active && DeviceLock.enabled && timeout > 0)
+        running: (active && DeviceLock.enabled && (timeout > 0))
         // automaticLocking is in minutes, lets reset 10 seconds before that:
         property int timeout: ((DeviceLock.automaticLocking * 60) - 10) * 1000
         interval: (timeout > 0) ? timeout : 0
@@ -73,7 +73,7 @@ SettingsToggle {
             }
         }
         onTriggered: resetPeekBoundary()
-        Component.onCompleted: console.debug(qsTr("Swipe Lock: Device Lock is %1 enabled with timeout %2, %1 arming Timer.").arg(DeviceLock.enabled ? "" : "not").arg(DeviceLock.automaticLocking))
+        Component.onCompleted: console.info(qsTr("Swipe Lock: Device Lock is %1 enabled with timeout %2, %1 arming Timer.").arg(DeviceLock.enabled ? "" : "not").arg(DeviceLock.automaticLocking))
     }
 
     DBusInterface { id: lockbus
@@ -84,9 +84,9 @@ SettingsToggle {
 
         signalsEnabled: true
         function stateChanged() {
-            console.debug("Swipe Lock: Device Lock stateChanged signal")
+            console.info("Swipe Lock: Device Lock stateChanged signal")
             call("state",undefined,function(result) {
-                    console.debug("Swipe Lock: Device lock state:", result)
+                    console.info("Swipe Lock: Device lock state:", result)
                     if (result !== 0) { enableSwitch.resetPeekBoundary() }
                 },
                 function(error, message) { console.warn("Swipe Lock: Call failed:", error, message) }
@@ -100,14 +100,14 @@ SettingsToggle {
     }
 
     function setPeekBoundary(n) {
-        console.debug("Swipe Lock: Setting boundary values (n, user, new): ", n, peekBoundaryUser, peekBoundary.value)
+        console.info("Swipe Lock: Setting boundary values (n, user, new): ", n, peekBoundaryUser, peekBoundary.value)
         if ( n > 1) {
             peekBoundary.value = Math.floor(n)
         } else {
             if (peekBoundary.value) peekBoundaryUser = Math.floor(peekBoundary.value)
             peekBoundary.value = 0
         }
-        console.debug("Swipe Lock: Boundary values now: (n, user, new): ", n, peekBoundaryUser, peekBoundary.value)
+        console.info("Swipe Lock: Boundary values now: (n, user, new): ", n, peekBoundaryUser, peekBoundary.value)
     }
 
     menu: ContextMenu {
