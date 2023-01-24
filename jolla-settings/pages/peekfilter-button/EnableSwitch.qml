@@ -19,6 +19,14 @@ SettingsToggle {
     checked: peekBoundary.value === 0
     active: checked
 
+    // replace the dconf key, we live in Lipstick and so have persistent-enough State.
+    property int peekBoundaryUser
+
+    Component.onCompleted: {
+        console.info("Swipe Lock v@@UNRELEASED@@ loaded.")
+        if (peekBoundaryStored) peekBoundaryUser = Math.floor(peekBoundaryStored)
+    }
+
     /*
      * this is just here to have IDs for translations used in entries.json
      */
@@ -44,10 +52,13 @@ SettingsToggle {
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
         onValueChanged: console.debug("peekBoundary is now", typeof(value), value)
     }
-    ConfigurationValue { id: peekBoundaryUser
+
+    // previously: peekBoundaryUser
+    ConfigurationValue { id: peekBoundaryStored
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
-        onValueChanged: console.debug("peekBoundaryUser is now", typeof(value), value)
+        onValueChanged: console.debug("peekBoundaryStored is now", typeof(value), value)
     }
+
 
     Timer {
         running: (active && DeviceLock.enabled && timeout > 0)
@@ -85,18 +96,18 @@ SettingsToggle {
 
     function resetPeekBoundary() {
         console.info("Swipe Lock: Resetting boundary values.")
-        setPeekBoundary( (peekBoundaryUser.value !== 0) ? peekBoundaryUser.value : undefined )
+        setPeekBoundary( (peekBoundaryUser !== 0) ? peekBoundaryUser : undefined )
     }
 
     function setPeekBoundary(n) {
-        console.debug("Swipe Lock: Setting boundary values (n, user, new): ", n, peekBoundaryUser.value, peekBoundary.value)
+        console.debug("Swipe Lock: Setting boundary values (n, user, new): ", n, peekBoundaryUser, peekBoundary.value)
         if ( n > 1) {
             peekBoundary.value = Math.floor(n)
         } else {
-            if (peekBoundary.value) peekBoundaryUser.value = Math.floor(peekBoundary.value)
+            if (peekBoundary.value) peekBoundaryUser = Math.floor(peekBoundary.value)
             peekBoundary.value = 0
         }
-        console.debug("Swipe Lock: Boundary values now: (n, user, new): ", n, peekBoundaryUser.value, peekBoundary.value)
+        console.debug("Swipe Lock: Boundary values now: (n, user, new): ", n, peekBoundaryUser, peekBoundary.value)
     }
 
     menu: ContextMenu {
@@ -112,9 +123,8 @@ SettingsToggle {
             setPeekBoundary(0)
         } else {
             console.info("Swipe Lock: dis-engaged.")
-            setPeekBoundary(peekBoundaryUser.value)
+            setPeekBoundary(peekBoundaryUser)
         }
     }
-    Component.onCompleted: console.info("Swipe Lock v@@UNRELEASED@@ loaded.")
 }
 // vim: ft=javascript expandtab ts=4 sw=4 st=4
