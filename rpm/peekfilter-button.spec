@@ -10,7 +10,7 @@ Name:       peekfilter-button
 %define theme sailfish-default
 
 Summary:    Configure Edge Swipes
-Version:    0.9.6
+Version:    0.9.7
 Release:    1
 Group:      Applications
 License:    ASL 2.0
