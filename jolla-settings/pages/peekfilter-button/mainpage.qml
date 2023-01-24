@@ -35,9 +35,13 @@ Page { id: page
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
     }
-    ConfigurationValue { id: peekBoundaryUser
+    property int peekBoundaryUser
+    // formerly peekBoundary, deprecated, kept here for a while to remove extant keys
+    ConfigurationValue {
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
+        Component.onCompleted: if (value)  value = undefined
     }
+
     DBusInterface { id: settings
         service: "com.jolla.settings"
         path: "/com/jolla/settings/ui"
@@ -48,13 +52,11 @@ Page { id: page
     }
 
     function setPeekBoundary(n) {
-        if ( n > 1) {
+        if ( n >= 1) {
             peekBoundary.value = Math.floor(n)
         } else {
-            if (peekBoundary.value) peekBoundaryUser.value = Math.floor(peekBoundary.value)
             peekBoundary.value = 0
         }
-        console.info("Setting boundary values (n, user, new): ", n, peekBoundaryUser.value, peekBoundary.value)
     }
 
     property bool sliderDown: false
@@ -70,7 +72,6 @@ Page { id: page
                 onDelayedClick: {
                     // setting a dconf key to undefined should 'dconf reset' it.
                     peekBoundary.value     = undefined;
-                    peekBoundaryUser.value = undefined;
                     // close the page so the values are loaded again at next opening
                     pageStack.navigateBack()
                 }

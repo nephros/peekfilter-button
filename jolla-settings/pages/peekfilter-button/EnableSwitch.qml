@@ -53,12 +53,9 @@ SettingsToggle {
 
     Component.onCompleted: {
         console.info("Swipe Lock v@@UNRELEASED@@ loaded.")
-        if (peekBoundaryStored) {
-            peekBoundaryUser = Math.floor(peekBoundaryStored)
-        } else if (peekBoundary && (peekBoundary !== 0)) {
-            peekBoundaryUser = Math.floor(peekBoundary)
-        }
+        if (peekBoundary && (peekBoundary !== 0)) peekBoundaryUser = Math.floor(peekBoundary)
     }
+
     function enableSwipes() {
         if (peekBoundary.value !== 0) return
         console.info("Swipe Lock: enabling Swipes.")
@@ -79,11 +76,10 @@ SettingsToggle {
     // replace the dconf key, we live in Lipstick so we have persistent-enough State.
     property int peekBoundaryUser
 
-    // previously: peekBoundaryUser
-    ConfigurationValue { id: peekBoundaryStored
+    // formerly peekBoundary, deprecated, kept here for a while to remove extant keys
+    ConfigurationValue {
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
-        //TODO/FIXME: do we want to detect and react on changes from the settings app?
-        onValueChanged: console.debug("peekBoundaryStored is now", value)
+        Component.onCompleted: if (value)  value = undefined
     }
 
     /*
