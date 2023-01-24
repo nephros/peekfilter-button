@@ -36,7 +36,7 @@ Page { id: page
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
     }
     property int peekBoundaryUser
-    // formerly peekBoundary, deprecated, kept here for a while to remove extant keys
+    // formerly peekBoundaryUser, deprecated, kept here for a while to remove extant keys
     ConfigurationValue {
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
         Component.onCompleted: if (value)  value = undefined
@@ -48,14 +48,6 @@ Page { id: page
         iface: "com.jolla.settings.ui"
         function open(page) {
             call ("showPage", [ page ], function(){},function(){})
-        }
-    }
-
-    function setPeekBoundary(n) {
-        if ( n >= 1) {
-            peekBoundary.value = Math.floor(n)
-        } else {
-            peekBoundary.value = 0
         }
     }
 
@@ -165,7 +157,7 @@ Page { id: page
             PeekSlider { id: slider
                 value: peekBoundary.value
                 onDownChanged: {
-                    if (!down) page.setPeekBoundary(boundary)
+                    if (!down) peekBoundary.value = Math.floor( ( boundary >= 1) ? boundary : 0 )
                     sliderDown = down
                 }
             }
