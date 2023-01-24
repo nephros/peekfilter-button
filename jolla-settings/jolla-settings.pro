@@ -16,7 +16,7 @@ lupdate_only {
     SOURCES += pages/*.qml
 }
 
-TRANSLATIONS += translations/peekfilter-button-en.ts \
+TRANSLATIONS += translations/peekfilter-button.ts \
                 translations/peekfilter-button-de.ts
 
 include(translations/translations.pri)
