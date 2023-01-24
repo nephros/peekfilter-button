@@ -73,7 +73,7 @@ section header</extracomment>
     <message id="settings-peekfilter-page-label-5">
         <source>Notice: As a safety measure, %1 will disable itself automatically shortly before the device lock engages.</source>
         <oldsource>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</oldsource>
-        <translation>Hinweis: Aus Sicherheitsgründen schaltet sich %1 automatisch aus, wenn die Sperre aktiv wird.</translation>
+        <translation>Hinweis: Aus Sicherheitsgründen schaltet sich %1 automatisch aus, wenn die Geräteperre aktiv wird.</translation>
     </message>
 </context>
 </TS>
