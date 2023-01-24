@@ -17,6 +17,7 @@ lupdate_only {
 }
 
 TRANSLATIONS += translations/peekfilter-button-en.ts \
-                translations/peekfilter-button-de.ts
+                translations/peekfilter-button-de.ts \
+                translations/peekfilter-button-sv.ts
 
 include(translations/translations.pri)
