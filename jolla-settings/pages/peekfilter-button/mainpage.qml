@@ -204,7 +204,7 @@ Page { id: page
                 label: qsTrId("settings-peekfilter-page-topmenu-settings-name")
                 //% "Look for '%1'"
                 //: %1 is the button name (id: settings-peekfilter-button)
-                description: qsTrId("settings-peekfilter-page-topmenu-settings-hint").arg(qsTrId("settings-peekfilter-button").arg("2.5"));
+                description: qsTrId("settings-peekfilter-page-topmenu-settings-hint").arg(qsTrId("settings-peekfilter-button"));
                 onClicked: { settings.open("system_settings/look_and_feel/topmenu") }
             }
         }
