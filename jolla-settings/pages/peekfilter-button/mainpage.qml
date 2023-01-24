@@ -196,8 +196,8 @@ Page { id: page
                         Theme.highlightColor
                       )
                     + "<br />"
-                    //% "Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes."
-                    + qsTrId("settings-peekfilter-page-label-5").arg(qsTrId("settings-peekfilter-button")).arg("2.5")
+                    //% "Notice: As a safety measure, %1 will disable itself automatically shortly before the device lock engages."
+                    + qsTrId("settings-peekfilter-page-label-5").arg(qsTrId("settings-peekfilter-button"))
             }
             ValueButton {
                 //% "Top Menu Settings"

@@ -8,7 +8,9 @@
 import QtQuick 2.1
 import Sailfish.Silica 1.0
 import Nemo.Configuration 1.0
+import Nemo.DBus 2.0
 import com.jolla.settings 1.0
+import org.nemomobile.devicelock 1.0
 import org.nemomobile.systemsettings 1.0
 
 SettingsToggle {
@@ -46,18 +48,39 @@ SettingsToggle {
     }
 
     Timer {
-        running: active
-        interval: 2.5 * 60 * 1000
+        running: (active && DeviceLock.enabled)
+        // automaticLocking is in minutes, lets reset 10 seconds before that:
+        interval: ((DeviceLock.automaticLocking * 60) - 10) * 1000
         onRunningChanged: {
             if (running) {
-                console.info("BackgroundJob started.")
+                console.info("Reset timer started:", interval)
             } else {
-                console.info("BackgroundJob stopped.")
+                console.info("Reset timer stopped.")
             }
         }
-        onTriggered: {
-            setPeekBoundary( (peekBoundaryUser.value !== 0) ? peekBoundaryUser.value : undefined )
+        onTriggered: resetPeekBoundary()
+        Component.onCompleted: console.debug(qsTr("Lock is %1 enabled, %1 arming Timer.").arg(DeviceLock.enabled ? "" : "not"))
+    }
+
+    DBusInterface { id: lockbus
+        bus: DBus.SystemBus
+        service: 'org.nemomobile.devicelock'
+        path:    '/devicelock'
+        iface:   'org.nemomobile.lipstick.devicelock'
+        signalsEnabled: true
+        function stateChanged() {
+            console.info("Device lock stateChanged signal")
+            call("state",undefined,
+                function(result) {
+                    if  (result !== 0) { resetPeekBoundary()}
+                },
+                function(error, message) { console.warn("Call failed:", error, message) }
+            )
         }
+    }
+
+    function resetPeekBoundary() {
+        setPeekBoundary( (peekBoundaryUser.value !== 0) ? peekBoundaryUser.value : undefined )
     }
 
     function setPeekBoundary(n) {
