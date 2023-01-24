@@ -21,16 +21,6 @@
 section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
-    <message id="settings-peekfilter-button-status-off">
-        <source>Swipe Lock: off</source>
-        <extracomment>button status</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message id="settings-peekfilter-button-status-on">
-        <source>Swipe Lock: on</source>
-        <extracomment>button status</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
     <message id="settings-peekfilter-menu-reset">
         <source>Reset to default</source>
         <extracomment>menu entry</extracomment>
@@ -74,8 +64,18 @@ section header</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="settings-peekfilter-page-label-5">
-        <source>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</source>
-        <oldsource>As a safety measure, %1 will disable itself automatically after 2.5 Minutes.</oldsource>
+        <source>Notice: As a safety measure, %1 will disable itself automatically shortly before the device lock engages.</source>
+        <oldsource>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-button-status-off">
+        <source>Swipe Lock: off</source>
+        <extracomment>top menu button status text</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-button-status-on">
+        <source>Swipe Lock: on</source>
+        <extracomment>top menu button status text</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

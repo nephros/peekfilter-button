@@ -20,11 +20,16 @@ SettingsToggle {
     active: checked
 
     //% "Swipe Lock: off"
-    //: button status
+    //: top menu button status text
     name: qsTrId("settings-peekfilter-button-status-off")
     //% "Swipe Lock: on"
-    //: button status
+    //: top menu button status text
     activeText: qsTrId("settings-peekfilter-button-status-on")
+    //this is just here to have IDs for translations used in entries.json
+    //% "Swipe Lock"
+    //: button name in the top menu
+    property string buttonname: qsTrId("settings-peekfilter-button")
+
 
     icon.source: checked ? "image://theme/icon-m-peekfilter-lock" : "image://theme/icon-m-peekfilter-unlock"
 
@@ -54,24 +59,13 @@ SettingsToggle {
             peekBoundaryUser = Math.floor(peekBoundary)
         }
     }
-
-    /*
-     * this is just here to have IDs for translations used in entries.json
-     */
-    QtObject {
-        //% "Edge Swipe"
-        //: entry name in the settings
-        property string pagename: qsTrId("settings-peekfilter-page")
-        //% "Swipe Lock"
-        //: button name in the top menu
-        property string buttonname: qsTrId("settings-peekfilter-button")
-    }
-
     function enableSwipes() {
+        if (peekBoundary.value !== 0) return
         console.info("Swipe Lock: enabling Swipes.")
         peekBoundary.value = Math.floor((peekBoundaryUser && (peekBoundaryUser !== 0)) ? peekBoundaryUser : undefined )
     }
     function disableSwipes() {
+        if (peekBoundary.value === 0) return
         console.info("Swipe Lock: disabling Swipes.")
         if (peekBoundary.value && (peekBoundary.value !== 0)) peekBoundaryUser = Math.floor(peekBoundary.value)
         peekBoundary.value = 0
@@ -79,7 +73,7 @@ SettingsToggle {
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
-        onValueChanged: console.info("peekBoundary is now", typeof(value), value)
+        onValueChanged: console.debug("peekBoundary is now", value)
     }
 
     // replace the dconf key, we live in Lipstick so we have persistent-enough State.
@@ -89,26 +83,32 @@ SettingsToggle {
     ConfigurationValue { id: peekBoundaryStored
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
         //TODO/FIXME: do we want to detect and react on changes from the settings app?
-        onValueChanged: console.info("peekBoundaryStored is now", typeof(value), value)
+        onValueChanged: console.debug("peekBoundaryStored is now", value)
     }
 
     /*
-     * when toggled, start a time to unlock again before the lock engages
+     * when toggled, start a timer to unlock again before the lock engages
      */
     Timer {
         running: (active && DeviceLock.enabled && (timeout > 0))
         // automaticLocking is in minutes, lets reset 10 seconds before that:
-        property int timeout: ((DeviceLock.automaticLocking * 60) - 10) * 1000
+        property int timeout: ((DeviceLock.automaticLocking * 60) - 5) * 1000
         interval: (timeout > 0) ? timeout : 0
         onRunningChanged: {
             if (running) {
-                console.info("Swipe Lock: Reset timer started:", Math.floor(interval/1000) + "s")
+                console.info("Swipe Lock: Reset timer started")
             } else {
                 console.info("Swipe Lock: Reset timer stopped.")
             }
         }
         onTriggered: if (active) enableSwipes()
-        Component.onCompleted: console.info(qsTr("Swipe Lock: Device Lock is %1 enabled with timeout %2, %3 arming Timer.").arg(DeviceLock.enabled ? "" : "not").arg(DeviceLock.automaticLocking).arg(running ? "" : "not" ))
+        Component.onCompleted: console.info("Swipe Lock: Device Lock is",
+                                (DeviceLock.enabled ? "enabled" : "not enabled"),
+                                "with timeout", DeviceLock.automaticLocking,
+                                ", we are", (active) ? "engaged" : "not engaged",
+                                ", therefore", (running ? "arming" : "not arming" ),
+                                "Timer triggering in", Math.floor(interval/1000), "s"
+                            )
     }
 
     /*
@@ -122,9 +122,9 @@ SettingsToggle {
 
         signalsEnabled: true
         function stateChanged() {
-            console.info("Swipe Lock: Device Lock stateChanged signal")
+            console.debug("Swipe Lock: Device Lock stateChanged signal")
             call("state",undefined,function(result) {
-                    console.info("Swipe Lock: Device lock state:", result)
+                    console.debug("Swipe Lock: Device lock state:", result)
                     if (result !== 0) { enableSwitch.enableSwipes() }
                 },
                 function(error, message) { console.warn("Swipe Lock: Call failed:", error, message) }
