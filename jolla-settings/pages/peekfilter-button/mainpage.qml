@@ -34,7 +34,6 @@ Page { id: page
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
-        defaultValue: (peekBoundaryUser.value !== 0) ? peekBoundaryUser : undefined
     }
     ConfigurationValue { id: peekBoundaryUser
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
@@ -70,8 +69,9 @@ Page { id: page
             MenuItem { text: qsTrId("settings-peekfilter-menu-reset")
                 onDelayedClick: {
                     // setting a dconf key to undefined should 'dconf reset' it.
-                    peekBoundary.value = undefined;
+                    peekBoundary.value     = undefined;
                     peekBoundaryUser.value = undefined;
+                    // close the page so the values are loaded again at next opening
                     pageStack.navigateBack()
                 }
             }
@@ -162,7 +162,7 @@ Page { id: page
                 width: parent.width
             }
             PeekSlider { id: slider
-                value: peekBoundary.value ? peekBoundary.value : peekBoundary.defaultValue
+                value: peekBoundary.value
                 onDownChanged: {
                     if (!down) page.setPeekBoundary(boundary)
                     sliderDown = down
@@ -205,7 +205,6 @@ Page { id: page
                 //% "Look for '%1'"
                 //: %1 is the button name (id: settings-peekfilter-button)
                 description: qsTrId("settings-peekfilter-page-topmenu-settings-hint").arg(qsTrId("settings-peekfilter-button").arg("2.5"));
-                //onClicked: pageStack.push(Qt.resolvedUrl("../topmenu/topmenu.qml"))
                 onClicked: { settings.open("system_settings/look_and_feel/topmenu") }
             }
         }

@@ -40,7 +40,6 @@ SettingsToggle {
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
-        defaultValue: (peekBoundaryUser.value !== 0) ? peekBoundaryUser : undefined
     }
     ConfigurationValue { id: peekBoundaryUser
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
