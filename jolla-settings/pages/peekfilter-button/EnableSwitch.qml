@@ -10,7 +10,7 @@ import Sailfish.Silica 1.0
 import Nemo.Configuration 1.0
 import Nemo.DBus 2.0
 import com.jolla.settings 1.0
-import org.nemomobile.devicelock 1.0
+//import org.nemomobile.devicelock 1.0
 import org.nemomobile.systemsettings 1.0
 
 SettingsToggle {
@@ -85,6 +85,7 @@ SettingsToggle {
     /*
      * when toggled, start a timer to unlock again before the lock engages
      */
+    /*
     Timer {
         running: (active && DeviceLock.enabled && (timeout > 0))
         // automaticLocking is in minutes, lets reset 10 seconds before that:
@@ -106,6 +107,7 @@ SettingsToggle {
                                 "Timer triggering in", Math.floor(interval/1000), "s"
                             )
     }
+     */
 
     /*
      * monitor DBus to detect lock/unlock events
