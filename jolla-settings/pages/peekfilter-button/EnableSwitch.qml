@@ -75,7 +75,7 @@ SettingsToggle {
         SettingsMenuItem { onClicked: enableSwitch.goToSettings() }
         PeekSlider {
             value: peekBoundary.value
-            onDownChanged: if (!down) enableSwitch.setPeekBoundary(sliderValue)
+            onDownChanged: if (!down) enableSwitch.setPeekBoundary(boundary)
         }
     }
     onToggled: {

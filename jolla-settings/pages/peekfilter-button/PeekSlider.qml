@@ -10,15 +10,17 @@ import Sailfish.Silica 1.0
 Slider { id: slider
     width: parent.width
 
+    property int boundary: Math.floor(sliderValue)
+
     //% "Edge width"
     //: peek slider label
     label: qsTrId("settings-peekfilter-controls-slider")
 
     stepSize: 4; minimumValue: 0; maximumValue: Screen.width / 8
-    valueText: Math.floor(sliderValue) + "px"
+    valueText: boundary + "px"
     color: {
         if (sliderValue < Theme.paddingLarge/2) return Theme.highlightFromColor("red", Theme.colorScheme)
-        if (value < Theme.paddingMedium)        return Theme.highlightFromColor("orange", Theme.colorScheme)
+        if (sliderValue < Theme.paddingMedium)  return Theme.highlightFromColor("orange", Theme.colorScheme)
         return Theme.lightPrimaryColor
     }
 }

@@ -164,7 +164,7 @@ Page { id: page
             PeekSlider { id: slider
                 value: peekBoundary.value ? peekBoundary.value : peekBoundary.defaultValue
                 onDownChanged: {
-                    if (!down) page.setPeekBoundary(sliderValue)
+                    if (!down) page.setPeekBoundary(boundary)
                     sliderDown = down
                 }
             }
