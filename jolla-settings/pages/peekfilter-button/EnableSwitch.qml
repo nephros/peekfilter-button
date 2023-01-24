@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2023 Peter G. <sailfish@nephros.org>
  *
- * License: Apache-2.0
- *
  */
+
+// SPDX-License-Identifier: Apache-2.0
 
 import QtQuick 2.1
 import Sailfish.Silica 1.0
@@ -19,12 +19,40 @@ SettingsToggle {
     checked: peekBoundary.value === 0
     active: checked
 
-    // replace the dconf key, we live in Lipstick and so have persistent-enough State.
-    property int peekBoundaryUser
+    //% "Swipe Lock: off"
+    //: button status
+    name: qsTrId("settings-peekfilter-button-status-off")
+    //% "Swipe Lock: on"
+    //: button status
+    activeText: qsTrId("settings-peekfilter-button-status-on")
+
+    icon.source: checked ? "image://theme/icon-m-peekfilter-lock" : "image://theme/icon-m-peekfilter-unlock"
+
+    menu: ContextMenu {
+        SettingsMenuItem { onClicked: enableSwitch.goToSettings() }
+        PeekSlider {
+            value: peekBoundary.value
+            onDownChanged: if (!down) peekBoundary.value = boundary
+        }
+    }
+
+    onToggled: {
+        if (!checked) {
+            console.info("Swipe Lock: engaged.")
+            disableSwipes()
+        } else {
+            console.info("Swipe Lock: dis-engaged.")
+            enableSwipes()
+        }
+    }
 
     Component.onCompleted: {
         console.info("Swipe Lock v@@UNRELEASED@@ loaded.")
-        if (peekBoundaryStored) peekBoundaryUser = Math.floor(peekBoundaryStored)
+        if (peekBoundaryStored) {
+            peekBoundaryUser = Math.floor(peekBoundaryStored)
+        } else if (peekBoundary && (peekBoundary !== 0)) {
+            peekBoundaryUser = Math.floor(peekBoundary)
+        }
     }
 
     /*
@@ -39,27 +67,34 @@ SettingsToggle {
         property string buttonname: qsTrId("settings-peekfilter-button")
     }
 
-    //% "Swipe Lock: off"
-    //: button status
-    name: qsTrId("settings-peekfilter-button-status-off")
-    //% "Swipe Lock: on"
-    //: button status
-    activeText: qsTrId("settings-peekfilter-button-status-on")
-
-    icon.source: checked ? "image://theme/icon-m-peekfilter-lock" : "image://theme/icon-m-peekfilter-unlock"
+    function enableSwipes() {
+        console.info("Swipe Lock: enabling Swipes.")
+        peekBoundary.value = Math.floor((peekBoundaryUser && (peekBoundaryUser !== 0)) ? peekBoundaryUser : undefined )
+    }
+    function disableSwipes() {
+        console.info("Swipe Lock: disabling Swipes.")
+        if (peekBoundary.value && (peekBoundary.value !== 0)) peekBoundaryUser = Math.floor(peekBoundary.value)
+        peekBoundary.value = 0
+    }
 
     ConfigurationValue { id: peekBoundary
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth"
         onValueChanged: console.info("peekBoundary is now", typeof(value), value)
     }
 
+    // replace the dconf key, we live in Lipstick so we have persistent-enough State.
+    property int peekBoundaryUser
+
     // previously: peekBoundaryUser
     ConfigurationValue { id: peekBoundaryStored
         key: "/desktop/lipstick-jolla-home/peekfilter/boundaryWidth_saved"
+        //TODO/FIXME: do we want to detect and react on changes from the settings app?
         onValueChanged: console.info("peekBoundaryStored is now", typeof(value), value)
     }
 
-
+    /*
+     * when toggled, start a time to unlock again before the lock engages
+     */
     Timer {
         running: (active && DeviceLock.enabled && (timeout > 0))
         // automaticLocking is in minutes, lets reset 10 seconds before that:
@@ -72,10 +107,13 @@ SettingsToggle {
                 console.info("Swipe Lock: Reset timer stopped.")
             }
         }
-        onTriggered: resetPeekBoundary()
-        Component.onCompleted: console.info(qsTr("Swipe Lock: Device Lock is %1 enabled with timeout %2, %1 arming Timer.").arg(DeviceLock.enabled ? "" : "not").arg(DeviceLock.automaticLocking))
+        onTriggered: if (active) enableSwipes()
+        Component.onCompleted: console.info(qsTr("Swipe Lock: Device Lock is %1 enabled with timeout %2, %3 arming Timer.").arg(DeviceLock.enabled ? "" : "not").arg(DeviceLock.automaticLocking).arg(running ? "" : "not" ))
     }
 
+    /*
+     * monitor DBus to detect lock/unlock events
+     */
     DBusInterface { id: lockbus
         bus: DBus.SystemBus
         service: 'org.nemomobile.devicelock'
@@ -87,44 +125,12 @@ SettingsToggle {
             console.info("Swipe Lock: Device Lock stateChanged signal")
             call("state",undefined,function(result) {
                     console.info("Swipe Lock: Device lock state:", result)
-                    if (result !== 0) { enableSwitch.resetPeekBoundary() }
+                    if (result !== 0) { enableSwitch.enableSwipes() }
                 },
                 function(error, message) { console.warn("Swipe Lock: Call failed:", error, message) }
             )
         }
     }
-
-    function resetPeekBoundary() {
-        console.info("Swipe Lock: Resetting boundary values.")
-        setPeekBoundary( (peekBoundaryUser !== 0) ? peekBoundaryUser : undefined )
-    }
-
-    function setPeekBoundary(n) {
-        console.info("Swipe Lock: Setting boundary values (n, user, new): ", n, peekBoundaryUser, peekBoundary.value)
-        if ( n > 1) {
-            peekBoundary.value = Math.floor(n)
-        } else {
-            if (peekBoundary.value) peekBoundaryUser = Math.floor(peekBoundary.value)
-            peekBoundary.value = 0
-        }
-        console.info("Swipe Lock: Boundary values now: (n, user, new): ", n, peekBoundaryUser, peekBoundary.value)
-    }
-
-    menu: ContextMenu {
-        SettingsMenuItem { onClicked: enableSwitch.goToSettings() }
-        PeekSlider {
-            value: peekBoundary.value
-            onDownChanged: if (!down) enableSwitch.setPeekBoundary(boundary)
-        }
-    }
-    onToggled: {
-        if (!checked) {
-            console.info("Swipe Lock: engaged.")
-            setPeekBoundary(0)
-        } else {
-            console.info("Swipe Lock: dis-engaged.")
-            setPeekBoundary(peekBoundaryUser)
-        }
-    }
 }
+
 // vim: ft=javascript expandtab ts=4 sw=4 st=4
