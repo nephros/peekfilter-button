@@ -87,6 +87,8 @@ rm -rf %{buildroot}
 %qmake5_install
 
 # >> install post
+# mangle version info
+sed -i -e "s/@@UNRELEASED@@/%{version}/" %{buildroot}%{_datadir}/jolla-settings/pages/%{name}/EnableSwitch.qml
 # << install post
 
 %files

@@ -68,11 +68,15 @@ SettingsToggle {
         path:    '/devicelock'
         iface:   'org.nemomobile.lipstick.devicelock'
         signalsEnabled: true
+        property int myState
+        onMyStateChanged: console.debug("Device lock my state changed: ", state, myState )
         function stateChanged() {
             console.info("Device lock stateChanged signal")
             call("state",undefined,
                 function(result) {
-                    if  (result !== 0) { resetPeekBoundary()}
+                    lockbus.state = result
+                    console.info("Device lock state:", result)
+                    if (result !== 0) { enableSwitch.resetPeekBoundary() }
                 },
                 function(error, message) { console.warn("Call failed:", error, message) }
             )
@@ -80,6 +84,7 @@ SettingsToggle {
     }
 
     function resetPeekBoundary() {
+        console.debug("Resetting boundary values.")
         setPeekBoundary( (peekBoundaryUser.value !== 0) ? peekBoundaryUser.value : undefined )
     }
 
@@ -103,9 +108,12 @@ SettingsToggle {
     onToggled: {
         if (!checked) {
             setPeekBoundary(0)
+            console.info("Swipe Lock v@@UNRELEASED@@ engaged.")
         } else {
+            console.info("Swipe Lock v@@UNRELEASED@@ dis-engaged.")
             setPeekBoundary(peekBoundaryUser.value)
         }
     }
+    Component.onCompleted: console.info("Swipe Lock v@@UNRELEASED@@ loaded.")
 }
 // vim: ft=javascript expandtab ts=4 sw=4 st=4
