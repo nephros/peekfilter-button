@@ -10,7 +10,7 @@ Name:       peekfilter-button
 %define theme sailfish-default
 
 Summary:    Configure Edge Swipes
-Version:    0.9.7
+Version:    0.10.0
 Release:    1
 Group:      Applications
 License:    ASL 2.0
@@ -36,8 +36,8 @@ Simple, swipe down the Top Menu, tap the switch, swipe up again.
 Problem goes away.
 
 But DO remember to disable the switch again soon, else you will have a bad time interacting with SFOS ;)
-For safety reasons, the button automatically resets the original swipe boundary after 2-5 Minutes.
 
+For safety reasons, the button automatically reset to the original swipe boundary before the device locks.
 %if "%{?vendor}" == "chum"
 PackageName: Edge Swipe Control
 Type: desktop-application
@@ -54,12 +54,9 @@ Screenshots:
   - %{url}/raw/master/Screenshot_003.png
 Url:
   Homepage: %{url}
-  Help: %{url}/issues
-  Donations:
-    - https://noyb.eu/en/donations-other-support-options
-    - https://my.fsfe.org/donate
-    - https://supporters.eff.org/donate/join-4
-    - https://openrepos.net/donate
+  Help: https://forum.sailfishos.org/t/14209
+  Bugtracker: %{url}/issues
+  Donation: https://openrepos.net/donate
 %endif
 
 
