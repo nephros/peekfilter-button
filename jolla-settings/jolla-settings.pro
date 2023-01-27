@@ -7,7 +7,8 @@ settings-ui.path = /usr/share/jolla-settings/pages/peekfilter-button
 settings-ui.files = \
     pages/peekfilter-button/mainpage.qml \
     pages/peekfilter-button/PeekSlider.qml \
-    pages/peekfilter-button/EnableSwitch.qml
+    pages/peekfilter-button/EnableSwitch.qml \
+    pages/peekfilter-button/AdvancedPage.qml
 
 INSTALLS += settings-ui settings-entry
 OTHER_FILES += test.qml

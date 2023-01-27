@@ -68,6 +68,11 @@ Page { id: page
                     pageStack.navigateBack()
                 }
             }
+            //% "Experimental Settings"
+            //: menu entry
+            MenuItem { text: qsTrId("settings-peekfilter-menu-advanced")
+                onClicked: pageStack.push(Qt.resolvedUrl("AdvancedPage.qml"))
+            }
         }
         Column { id: column
             width: page.width - Theme.horizontalPageMargin
