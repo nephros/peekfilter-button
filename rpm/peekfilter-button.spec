@@ -10,7 +10,7 @@ Name:       peekfilter-button
 %define theme sailfish-default
 
 Summary:    Configure Edge Swipes
-Version:    0.10.0
+Version:    0.11.0
 Release:    1
 Group:      Applications
 License:    ASL 2.0
@@ -94,6 +94,7 @@ sed -i -e "s/@@UNRELEASED@@/%{version}-%{release}/" %{buildroot}%{_datadir}/joll
 %{_datadir}/jolla-settings/pages/%{name}/EnableSwitch.qml
 %{_datadir}/jolla-settings/pages/%{name}/PeekSlider.qml
 %{_datadir}/jolla-settings/pages/%{name}/mainpage.qml
+%{_datadir}/jolla-settings/pages/%{name}/AdvancedPage.qml
 %{_datadir}/translations/*.qm
 %{_datadir}/themes/%{theme}/meegotouch/z*/icons/*.png
 # >> files
