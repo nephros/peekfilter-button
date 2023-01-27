@@ -78,5 +78,42 @@ section header</extracomment>
         <oldsource>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</oldsource>
         <translation type="unfinished">Som en säkerhetsåtgärd kommer %1 att automatiskt inaktivera sig själv efter %2 minuter.</translation>
     </message>
+    <message id="settings-peekfilter-menu-advanced">
+        <source>Experimental Settings</source>
+        <extracomment>menu entry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-page-adv-title">
+        <source>Experimental Features</source>
+        <oldsource>Experimental Configuration</oldsource>
+        <extracomment>Settings page title</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-page-adv-section-quicksw">
+        <source>Quick App Switching</source>
+        <extracomment>section header</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-page-adv-label-1">
+        <source>Similar to pressing Alt + Tab on a desktop to switch to the previous app window. However, Quick App Switching can only jump to the previous app.</source>
+        <oldsource>Similar to pressing &lt;pre&gt;Alt + Tab&lt;/pre&gt; once on desktop to switch back to the previous app window.</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-quicksw-name">
+        <source>Quick App Switching</source>
+        <oldsource>Quick App Switching %1</oldsource>
+        <extracomment>quick app switch text</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-page-adv-label-2">
+        <source>For more information, see: %1</source>
+        <oldsource>Once enabled you can switch from the foregound app to the previous app by doing a three centimetres long peek gesture from the foreground appFor more information, see: %1</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="settings-peekfilter-quicksw-desc">
+        <source>Once enabled you can switch from the foregound app to the previous one by doing a long peek gesture.</source>
+        <extracomment>quick app switch description</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

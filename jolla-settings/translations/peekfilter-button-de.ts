@@ -72,8 +72,40 @@ section header</extracomment>
     </message>
     <message id="settings-peekfilter-page-label-5">
         <source>Notice: As a safety measure, %1 will disable itself automatically shortly before the device lock engages.</source>
-        <oldsource>Notice: As a safety measure, %1 will disable itself automatically after %2 Minutes.</oldsource>
         <translation>Hinweis: Aus Sicherheitsgründen schaltet sich %1 automatisch aus, wenn die Geräteperre aktiv wird.</translation>
+    </message>
+    <message id="settings-peekfilter-menu-advanced">
+        <source>Experimental Settings</source>
+        <extracomment>menu entry</extracomment>
+        <translation>Experimentelle Einstellungen</translation>
+    </message>
+    <message id="settings-peekfilter-page-adv-title">
+        <source>Experimental Features</source>
+        <extracomment>Settings page title</extracomment>
+        <translation>Experimentelle Funktionen</translation>
+    </message>
+    <message id="settings-peekfilter-page-adv-section-quicksw">
+        <source>Quick App Switching</source>
+        <extracomment>section header</extracomment>
+        <translation>Schneller Appwechsel</translation>
+    </message>
+    <message id="settings-peekfilter-page-adv-label-1">
+        <source>Similar to pressing Alt + Tab on a desktop to switch to the previous app window. However, Quick App Switching can only jump to the previous app.</source>
+        <translation>Ähnlich wie Alt + Tab auf einem Desktop zum Springen zu einem anderen Fenster. Allerdings kann der Schnelle Appwechsel nur zum letztverwendeten Fenster springen.</translation>
+    </message>
+    <message id="settings-peekfilter-quicksw-name">
+        <source>Quick App Switching</source>
+        <extracomment>quick app switch text</extracomment>
+        <translation>Schneller Appwechsel</translation>
+    </message>
+    <message id="settings-peekfilter-page-adv-label-2">
+        <source>For more information, see: %1</source>
+        <translation>Für mehr Informationen siehe %1</translation>
+    </message>
+    <message id="settings-peekfilter-quicksw-desc">
+        <source>Once enabled you can switch from the foregound app to the previous one by doing a long peek gesture.</source>
+        <extracomment>quick app switch description</extracomment>
+        <translation>Wenn aktiv, kannst du mittels einer langgezogenen Kantenwischgeste von der App im Vordergrund zur vorherigen speringen.</translation>
     </message>
 </context>
 </TS>
