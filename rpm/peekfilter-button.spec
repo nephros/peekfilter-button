@@ -26,20 +26,8 @@ BuildRequires:  qml-rpm-macros
 %description
 Adds a Settings entry to configure and a Top Menu switch to disable edge swipes.
 
-This app serves two functions. One, it allows to set the peekBundaryWidth from
-the Settings app.  
-See https://docs.sailfishos.org/Reference/Sailfish_OS_Tips_and_Tricks/#easing-edge-swipe about that.
-
-Two, say you are playing a game or are editing an image in some app, but
-the edge swipe gets in the way and wants to minimize the app.  
-Simple, swipe down the Top Menu, tap the switch, swipe up again.  
-Problem goes away.
-
-But DO remember to disable the switch again soon, else you will have a bad time interacting with SFOS ;)
-
-For safety reasons, the button automatically reset to the original swipe boundary before the device locks.
 %if "%{?vendor}" == "chum"
-PackageName: Edge Swipe Control
+Title: Edge Swipe Control
 Type: desktop-application
 DeveloperName: nephros
 Categories:
@@ -47,12 +35,12 @@ Categories:
   - Settings
 Custom:
   Repo: %{url}
-Icon: %{url}/raw/master/icons/svgs/icon-m-peekfilter.svg
+  DescriptionMD: %{url}/raw/master/README.md
 Screenshots:
   - %{url}/raw/master/Screenshot_001.png
   - %{url}/raw/master/Screenshot_002.png
   - %{url}/raw/master/Screenshot_003.png
-Url:
+Links:
   Homepage: %{url}
   Help: https://forum.sailfishos.org/t/14209
   Bugtracker: %{url}/issues
